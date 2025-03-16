@@ -1,24 +1,27 @@
 "use client";
 import styled from "styled-components";
 import SeasonCard from "./components/SeasonCard";
+import natureImg from "../assets/nature.jpg";
+import breakImg from "../assets/break.jpg";
+import historyImg from "../assets/history.jpg";
 
 const SeasonalDisplay = () => {
   return (
     <Container>
       <SeasonGrid>
         <SeasonCard
-          image="https://cdn.builder.io/api/v1/image/assets/TEMP/d86a44f03395ecaeeaa2f5dd69426666f77ae182"
-          title="음악"
+          image={natureImg}
+          title="NATURE"
           delay="0s" /* 첫 번째 카드 */
         />
         <SeasonCard
-          image="https://cdn.builder.io/api/v1/image/assets/TEMP/2b2409bac2da28c770852125f9b9dc21f1a119e2"
-          title="음식"
+          image={breakImg}
+          title="BREAK"
           delay="0.3s" /* 두 번째 카드 */
         />
         <SeasonCard
-          image="https://cdn.builder.io/api/v1/image/assets/TEMP/f2ea355bfb6b4321e49b6bb8906aa2530ea58d97"
-          title="전체"
+          image={historyImg}
+          title="HISTORY"
           delay="0.6s" /* 세 번째 카드 */
         />
       </SeasonGrid>

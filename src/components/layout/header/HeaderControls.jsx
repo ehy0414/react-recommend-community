@@ -8,7 +8,7 @@ const ControlsWrapper = styled.div`
   flex-direction: column;
   align-items: end;
   justify-content: start;
-  width: 461px;
+  width: 480px;
   @media (max-width: 991px) {
     max-width: 100%;
   }
@@ -20,7 +20,7 @@ const ControlsContainer = styled.div`
 
 const ControlsList = styled.div`
   display: flex;
-  width: 40%;
+  width: 50%;
   align-items: center;
   justify-content: center;
 `;
@@ -63,7 +63,7 @@ const CareersText = styled.span`
   margin: auto 0;
   padding: 5px 10px;
   font-family: 'Gamja Flower';
-
+  font-size: 20px;
   @media (max-width: 991px) {
     white-space: initial;
   }

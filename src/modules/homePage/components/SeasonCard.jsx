@@ -63,6 +63,7 @@ const SeasonTitle = styled.h2`
   font-size: 30px;
   font-family: "Gamja Flower";
   font-weight: 700;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
   line-height: 34px;
   position: absolute;
   left: 30px;
