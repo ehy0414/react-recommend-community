@@ -1,67 +1,139 @@
-import React, { useState } from "react";
-import styled, { ThemeProvider } from "styled-components";
+"use client";
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+import springImg from "../assets/spring.jpg";
 
-const themes = {
-    봄: { background: "#FFF0F5", color: "#FF69B4", font: "'Gamja Flower', sans-serif" },  // 연한 핑크 배경, 진한 핑크 텍스트
-    여름: { background: "#B0F0EF", color: "#00BFFF", font: "'Gamja Flower', sans-serif" }, // 연한 하늘색 배경, 하늘색 텍스트
-    가을: { background: "#F4A460", color: "#8B4513", font: "'Gamja Flower', cursive" },   // 연한 갈색 배경, 진한 갈색 텍스트
-    겨울: { background: "#B0CADF", color: "#4682C4", font: "'Gamja Flower', cursive" },   // 연한 남색 배경, 진한 남색 텍스트
-  };
+const images = [
+  {
+    src: `${springImg}`,
+    text1: "봄의 산뜻한 하루",
+    text2: "A fresh day of spring",
+  },
+  {
+    src: `${springImg}`,
+    text1: "여름의 시원한 행복",
+    text2: "Cool happiness in summer",
+  },
+  {
+    src: `${springImg}`,
+    text1: "가을의 따뜻한 감성",
+    text2: "Warm emotions in autumn",
+  },
+  {
+    src: `${springImg}`,
+    text1: "겨울의 포근한 순간",
+    text2: "Cozy moments in winter",
+  },
+];
 
-const Wrapper = styled.div`
-  height: 100vh;
+const StyledSlider = styled.div`
+  position: relative;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: ${(props) => props.theme.background};
-  color: ${(props) => props.theme.color};
-  font-family: ${(props) => props.theme.font};
-  transition: background-color 0.5s ease, color 0.5s ease, font-family 0.5s ease;
+  transform: translate(4%);
+  width: 92%;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 25px;
 `;
 
-const ButtonGroup = styled.div`
-  display: flex;
-  gap: 10px;
+const Slide = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: ${(props) => (props.active ? 1 : 0)};
+  transition: opacity 1s ease-in-out;
 `;
 
-const Button = styled.button`
-  padding: 15px 25px;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  background-color: ${(props) => props.theme.color};
-  font-family: ${(props) => props.theme.font};
+const StyledImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
+
+const TextOverlay = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
   color: white;
-  font-weight: bold;
-  font-size: 17px;
-  transition: 0.3s;
-  &:hover {
-    opacity: 0.8;
+  font-family: "Rubik", sans-serif;
+  font-weight: 700;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+`;
+
+const Line1 = styled.p`
+  font-size: 42px;
+  margin: 0;
+  @media (max-width: 991px) {
+    font-size: 28px;
   }
 `;
 
-const SeasonText = styled.p`
-  font-size: 20px;
-  font-weight: bold;
+const Line2 = styled.p`
+  font-size: 28px;
+  margin: 0;
+  @media (max-width: 991px) {
+    font-size: 20px;
+  }
 `;
 
-const HomePage = () => {
-  const [season, setSeason] = useState("봄");
+const ArrowButton = styled.button`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent; /* 배경 제거 */
+  color: white;
+  border: none;
+  font-size: 45px; /* 화살표 크기 키움 */
+  cursor: pointer;
+  z-index: 2;
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-50%) scale(1.2); /* 호버 시 크기 확대 */
+  }
+`;
+
+const PrevButton = styled(ArrowButton)`
+  left: 10px;
+`;
+
+const NextButton = styled(ArrowButton)`
+  right: 10px;
+`;
+
+function HomePage() {
+  const [index, setIndex] = useState(0);
+
+
+  // 이전 이미지
+  const prevSlide = () => {
+    setIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+  };
+
+  // 다음 이미지
+  const nextSlide = () => {
+    setIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
 
   return (
-    <ThemeProvider theme={themes[season]}>
-      <Wrapper>
-        <ButtonGroup>
-          {Object.keys(themes).map((s) => (
-            <Button key={s} onClick={() => setSeason(s)}>
-              {s}
-            </Button>
-          ))}
-        </ButtonGroup>
-      </Wrapper>
-    </ThemeProvider>
+    <StyledSlider>
+      <PrevButton onClick={prevSlide}>❮</PrevButton>
+      {images.map((image, i) => (
+        <Slide key={i} active={i === index}>
+          <StyledImage src={image.src} alt={`Season ${i + 1}`} />
+          <TextOverlay>
+            <Line1>{image.text1}</Line1>
+            <Line2>{image.text2}</Line2>
+          </TextOverlay>
+        </Slide>
+      ))}
+      <NextButton onClick={nextSlide}>❯</NextButton>
+    </StyledSlider>
   );
-};
+}
 
 export default HomePage;
