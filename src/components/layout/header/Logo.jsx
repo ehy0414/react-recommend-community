@@ -19,6 +19,7 @@ const LogoImage = styled.img`
   object-fit: contain;
   object-position: center;
   width: 40px;
+  cursor: pointer;
 `;
 
 export function Logo() {
