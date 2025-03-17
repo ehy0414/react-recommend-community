@@ -1,6 +1,6 @@
 "use client";
 import styled from "styled-components";
-import CategorySelector from "../modules/springPage/CategorySelector";
+import HistorySelector from "../../modules/springPage/history/HistorySelector";
 
 const Wrapper = styled.div`
   position: absolute;
@@ -8,14 +8,14 @@ const Wrapper = styled.div`
   height: 100%;
 `;
 
-function SpringPage() {
+function SpringHistoryPage() {
 
   return (
     <Wrapper>
-      <CategorySelector />
+      <HistorySelector />
     </Wrapper>
 
   );
 }
 
-export default SpringPage;
+export default SpringHistoryPage;

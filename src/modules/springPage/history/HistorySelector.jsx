@@ -3,7 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import CategoryButton from "./components/CategoryButton";
 
-const CategorySelector = () => {
+const HistorySelector = () => {
   return (
     <BrandContainer>
       <BrandTitle>SPRING</BrandTitle>
@@ -42,4 +42,4 @@ const BrandTitle = styled.header`
   }
 `;
 
-export default CategorySelector;
+export default HistorySelector;
