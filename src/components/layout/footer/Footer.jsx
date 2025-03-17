@@ -20,6 +20,7 @@ const FooterContainer = styled.footer`
   margin-top: 40px;
   position: relative;
   bottom: 0;
+  
   width: 100%;
 `;
 

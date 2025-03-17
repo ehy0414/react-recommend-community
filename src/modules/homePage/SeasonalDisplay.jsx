@@ -11,17 +11,17 @@ const SeasonalDisplay = () => {
       <SeasonGrid>
         <SeasonCard
           image={natureImg}
-          title="NATURE"
+          title="자연"
           delay="0s" /* 첫 번째 카드 */
         />
         <SeasonCard
           image={breakImg}
-          title="BREAK"
+          title="휴식"
           delay="0.3s" /* 두 번째 카드 */
         />
         <SeasonCard
           image={historyImg}
-          title="HISTORY"
+          title="역사"
           delay="0.6s" /* 세 번째 카드 */
         />
       </SeasonGrid>

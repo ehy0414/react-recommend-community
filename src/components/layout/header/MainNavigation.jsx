@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const NavContainer = styled.div`
@@ -75,15 +76,16 @@ const NavItem = styled.a`
 
 
 export function MainNavigation() {
+  const navigate = useNavigate();
   return (
     <NavContainer>
       <NavItems>
-        <NavItem href="#about">ABOUT US</NavItem>
-        <NavItem href="#spring">SPRING</NavItem>
-        <NavItem href="#summer">SUMMER</NavItem>
-        <NavItem href="#autumn">AUTUMN</NavItem>
-        <NavItem href="#winter">WINTER</NavItem>
-        <NavItem href="#support">SUPPORT</NavItem>
+        <NavItem onClick={() => navigate("/aboutUs")}>ABOUT US</NavItem>
+        <NavItem onClick={() => navigate("/spring")}>SPRING</NavItem>
+        <NavItem onClick={() => navigate("/aboutUs")}>SUMMER</NavItem>
+        <NavItem onClick={() => navigate("/aboutUs")}>AUTUMN</NavItem>
+        <NavItem onClick={() => navigate("/aboutUs")}>WINTER</NavItem>
+        <NavItem onClick={() => navigate("/aboutUs")}>SUPPORT</NavItem>
       </NavItems>
     </NavContainer>
   );
