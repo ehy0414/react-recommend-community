@@ -7,7 +7,7 @@ const CategoryContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding-left: 557px;
+  padding-left: 525px;
   padding-right: 557px;
   @media (max-width: 991px) {
     padding-left: 100px;
@@ -51,7 +51,7 @@ const CategorySpacing = styled.div`
 
 const CategoryButton = () => {
   // 클릭된 버튼을 추적하는 상태
-  const [selectedCategory, setSelectedCategory] = useState("베이커리");
+  const [selectedCategory, setSelectedCategory] = useState("자연");
 
   const handleClick = (category) => {
     setSelectedCategory(category);
@@ -61,31 +61,31 @@ const CategoryButton = () => {
     <CategoryContainer>
       <CategorySpacing>
         <CategoryButtons
-          selected={selectedCategory === "베이커리"}
-          onClick={() => handleClick("베이커리")}
+          selected={selectedCategory === "자연"}
+          onClick={() => handleClick("자연")}
         >
-          <CategoryButtonText selected={selectedCategory === "베이커리"}>
-            베이커리
+          <CategoryButtonText selected={selectedCategory === "자연"}>
+            자연
           </CategoryButtonText>
         </CategoryButtons>
       </CategorySpacing>
       <CategorySpacing>
         <CategoryButtons
-          selected={selectedCategory === "디저트"}
-          onClick={() => handleClick("디저트")}
+          selected={selectedCategory === "휴식"}
+          onClick={() => handleClick("휴식")}
         >
-          <CategoryButtonText selected={selectedCategory === "디저트"}>
-            디저트
+          <CategoryButtonText selected={selectedCategory === "휴식"}>
+            휴식
           </CategoryButtonText>
         </CategoryButtons>
       </CategorySpacing>
       <CategorySpacing>
         <CategoryButtons
-          selected={selectedCategory === "외식/다이"}
-          onClick={() => handleClick("외식/다이")}
+          selected={selectedCategory === "역사"}
+          onClick={() => handleClick("역사")}
         >
-          <CategoryButtonText selected={selectedCategory === "외식/다이"}>
-            외식/다이
+          <CategoryButtonText selected={selectedCategory === "역사"}>
+            역사
           </CategoryButtonText>
         </CategoryButtons>
       </CategorySpacing>
