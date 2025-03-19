@@ -19,6 +19,7 @@ const AnimatedCardContainer = styled.div`
   border-radius: 12px;
   padding: 20px;
   margin: 20px;
+  margin-top: 30px;
   width: 300px;
   height: 350px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -39,7 +40,23 @@ const AnimatedCardContainer = styled.div`
   }
 `;
 
-const SpringCard = ({ title, content, delay }) => {
+const Image = styled.img`
+  width: 300px;
+  height: 300px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-bottom: 10px;
+`;
+
+const Title = styled.p`
+    margin-top: -1px;
+    font-family: "Gamja Flower";
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+`;
+
+const SpringCard = ({ title, content, image}) => {
   // threshold를 0.5로 올리고, rootMargin을 설정해 보세요.
   const { ref, inView } = useInView({
     threshold: 0.5,            // 요소의 50% 이상이 보여야 inView가 true
@@ -49,8 +66,8 @@ const SpringCard = ({ title, content, delay }) => {
 
   return (
     <AnimatedCardContainer ref={ref} $inView={inView}>
-      <h2>{title}</h2>
-      <p>{content}</p>
+      <Image src={`${image}`} alt="img" />
+      <Title>{title}</Title>
     </AnimatedCardContainer>
   );
 };

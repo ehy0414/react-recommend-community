@@ -9,6 +9,7 @@ const SpringList = ({ data }) => {
           key={spring.id}
           title={spring.title}
           content={spring.content}
+          image={spring.image}
         />
       ))}
     </div>

@@ -63,7 +63,7 @@ const CareersText = styled.span`
   margin: auto 0;
   padding: 5px 10px;
   font-family: 'Gamja Flower';
-  font-size: 20px;
+  font-size: 17px;
   @media (max-width: 991px) {
     white-space: initial;
   }
