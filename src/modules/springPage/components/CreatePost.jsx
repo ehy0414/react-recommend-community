@@ -147,6 +147,7 @@ function CreatePost() {
     reader.onloadend = async () => {
       const base64Image = reader.result;
       const postData = {
+        id: Date.now(),
         title,
         content,
         category,
@@ -158,7 +159,7 @@ function CreatePost() {
           headers: { 'Content-Type': 'application/json' },
         });
         alert('게시글이 성공적으로 등록되었습니다.');
-        navigate("/spring");
+        navigate("/spring/nature");
       } catch (error) {
         console.error('게시글 등록 실패:', error);
       }
