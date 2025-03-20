@@ -97,7 +97,7 @@ const SubmitButton = styled.button`
   }
 `;
 
-function CreatePost() {
+function CreatePost({season}) {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [category, setCategory] = useState('');
@@ -155,11 +155,11 @@ function CreatePost() {
       };
 
       try {
-        await axios.post('http://localhost:8000/spring', postData, {
+        await axios.post(`http://localhost:8000/${season}`, postData, {
           headers: { 'Content-Type': 'application/json' },
         });
         alert('게시글이 성공적으로 등록되었습니다.');
-        navigate("/spring/nature");
+        navigate(`/${season}/nature`);
       } catch (error) {
         console.error('게시글 등록 실패:', error);
       }

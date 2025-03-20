@@ -42,6 +42,7 @@ const NavItem = styled.a`
   text-decoration: none;
   color: inherit;
   font-family: "Gamja Flower";
+  font-size: 30px;
   position: relative;
   padding: 0 10px;
   transition: all 0.3s ease-in-out;

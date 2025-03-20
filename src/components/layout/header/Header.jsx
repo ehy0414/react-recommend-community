@@ -11,7 +11,7 @@ const HeaderContainer = styled.header`
   background-color: #fff;
   display: flex;
   min-height: 105px;
-  width: 100%;
+  width: 98%;
   
   @media (max-width: 991px) {
     max-width: 100%;

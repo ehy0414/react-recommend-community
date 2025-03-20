@@ -29,43 +29,27 @@ const CareersButton = styled.button`
   align-self: stretch;
   display: flex;
   margin: auto 0;
-  min-height: 66px;
-  padding: 18px 15px;
+  margin-left:10px;
+  padding: 10px 10px;
   align-items: center;
-  font-family:
-    Rubik,
-    -apple-system,
-    Roboto,
-    Helvetica,
-    sans-serif;
+  font-family: 'Gamja Flower';
   font-size: 16px;
-  color: #000;
   font-weight: 600;
   white-space: nowrap;
   line-height: 1;
   justify-content: start;
-  background: none;
   border: none;
   cursor: pointer;
-
+  color:gray;
+  border-radius: 50px;
+  background-color: rgba(234, 234, 234, 1);
+  
   @media (max-width: 991px) {
     white-space: initial;
   }
   &:hover {
     transform: scale(1.1); /* 호버 시 크기 확대 */
-  }
-`;
-
-const CareersText = styled.span`
-  border-radius: 50px;
-  background-color: rgba(234, 234, 234, 1);
-  align-self: stretch;
-  margin: auto 0;
-  padding: 5px 10px;
-  font-family: 'Gamja Flower';
-  font-size: 17px;
-  @media (max-width: 991px) {
-    white-space: initial;
+    color: black;
   }
 `;
 
@@ -75,10 +59,10 @@ export function HeaderControls() {
       <ControlsContainer>
         <ControlsList>
           <CareersButton>
-            <CareersText>로그인</CareersText>
+            로그인
           </CareersButton>
           <CareersButton>
-            <CareersText>회원가입</CareersText>
+            회원가입
           </CareersButton>
         </ControlsList>
       </ControlsContainer>

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import api from "../../services/axios";
 import SpringList from "../../modules/springPage/components/SpringList";
 import Footer from "../../components/layout/footer/Footer";
+import { Button } from "../../modules/springPage/components/Button";
 
 // 전체 Wrapper
 const Wrapper = styled.div`
@@ -76,6 +77,7 @@ function SpringBreakPage() {
   return (
     <Wrapper>
       <BreakSelector />
+
       {/* 정렬 선택 UI */}
       <SortSelect
         value={sortOrder}
@@ -88,8 +90,14 @@ function SpringBreakPage() {
         <SelectOption value="desc">최신순</SelectOption>
         <SelectOption value="asc">오래된 순</SelectOption>
       </SortSelect>
+
+      {/* 글쓰기 버튼 */}
+      <Button />
+
+      
       {/* 게시글 리스트: 현재 페이지에 해당하는 데이터 전달 */}
       <SpringList data={currentData} />
+
       {/* 페이지 네비게이션 */}
       <div style={{ textAlign: "center", marginTop: "20px" }}>
         {Array.from({ length: totalPages }).map((_, index) => (
