@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 
 // 정렬 선택을 위한 스타일드 셀렉트
 const SortSelect = styled.select`
-  margin-top: 20px;
+  margin-top: 30px;
   margin-left: 702px;
   display: block;
   text-align: center;
@@ -24,7 +24,7 @@ const SortSelect = styled.select`
   justify-content: center;
   align-items: center;
   padding: 10px;
-  border-radius: 8px;
+  border-radius: 25px;
   border: 1px solid lightgray;
   cursor: pointer;
 `;
