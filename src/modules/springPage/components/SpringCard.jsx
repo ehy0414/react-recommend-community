@@ -1,5 +1,6 @@
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
+import { useNavigate } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 
 const fadeInUp = keyframes`
@@ -48,15 +49,26 @@ const Image = styled.img`
   margin-bottom: 10px;
 `;
 
-const Title = styled.p`
-    margin-top: -1px;
-    font-family: "Gamja Flower";
-    font-weight: bold;
-    font-size: 20px;
-    text-align: center;
+const TitleContainer = styled.div`
+  text-align: center;
+  width: 100%;
+  margin-top: -1px;
+  margin-left: 10px;
 `;
 
-const SpringCard = ({ title, content, image}) => {
+const Title = styled.p`
+  margin-top: -1px;
+  font-family: "Gamja Flower";
+  font-weight: bold;
+  font-size: 20px;
+  width: 30ch;             /* 12글자 너비 */
+  overflow: hidden;        /* 넘치는 텍스트 숨김 */
+  white-space: nowrap;     /* 한 줄로 표시 */
+  text-overflow: ellipsis; /* 넘치는 경우 ... 처리 */
+`;
+
+
+const SpringCard = ({ title, content, image, springId}) => {
   // threshold를 0.5로 올리고, rootMargin을 설정해 보세요.
   const { ref, inView } = useInView({
     threshold: 0.5,            // 요소의 50% 이상이 보여야 inView가 true
@@ -64,10 +76,15 @@ const SpringCard = ({ title, content, image}) => {
     rootMargin: '0px 0px -50px 0px',  // 하단에서 50px 만큼 여유를 둠 (원하는 경우)
   });
 
+  const navigate = useNavigate();
+
   return (
-    <AnimatedCardContainer ref={ref} $inView={inView}>
+    <AnimatedCardContainer  ref={ref} $inView={inView}
+                            onClick={() => {navigate(`/spring/${springId}`)}}    >
       <Image src={`${image}`} alt="img" />
-      <Title>{title}</Title>
+      <TitleContainer>
+        <Title>{title}</Title>
+      </TitleContainer>
     </AnimatedCardContainer>
   );
 };

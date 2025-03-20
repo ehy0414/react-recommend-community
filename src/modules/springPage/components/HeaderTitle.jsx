@@ -2,10 +2,10 @@
 import React from "react";
 import styled from "styled-components";
 
-const BreakTitle = () => {
+const HeaderTitle = ({title}) => {
   return (
     <BrandContainer>
-      <BrandTitle>SPRING</BrandTitle>
+      <BrandTitle>{title}</BrandTitle>
     </BrandContainer>
   );
 };
@@ -40,4 +40,4 @@ const BrandTitle = styled.header`
   }
 `;
 
-export default BreakTitle;
+export default HeaderTitle;

@@ -7,12 +7,12 @@ import SpringNaturePage from './pages/spring/SpringNaturePage';
 import SpringBreakPage from './pages/spring/SpringBreakPage';
 import SpringHistoryPage from './pages/spring/SpringHistoryPage';
 import SpringWritePage from './pages/spring/SpringWritePage';
+import SpringPostPage from './pages/spring/SpringPostPage';
 
 function App() {
   return (
     <BrowserRouter>
         <Header />
-
       <Routes>
         <Route path='/' element={<HomePage />}></Route>
         <Route path='/aboutUs' element={<AboutUsPage />}></Route>
@@ -22,6 +22,7 @@ function App() {
         <Route path='/spring/break' element={<SpringBreakPage />}></Route>
         <Route path='/spring/history' element={<SpringHistoryPage />}></Route>
         <Route path='/spring/write' element={<SpringWritePage />}></Route>
+        <Route path='/spring/:id' element={<SpringPostPage />}></Route>
       </Routes>
 
     </BrowserRouter>

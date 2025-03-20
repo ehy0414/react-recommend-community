@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import CreatePost from "../../modules/springPage/components/CreatePost";
-import BreakTitle from "../../modules/springPage/break/BreakTitle";
+import HeaderTitle from "../../modules/springPage/components/HeaderTitle";
+import Footer from "../../components/layout/footer/Footer";
 
 const SpringWritePage = () => {
     const Wrapper = styled.div`
@@ -11,8 +12,9 @@ const SpringWritePage = () => {
 
     return(
         <Wrapper>
-            <BreakTitle />
+            <HeaderTitle title="SPRING" />
             <CreatePost />
+            <Footer />
         </Wrapper>
     )
 }

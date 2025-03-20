@@ -4,6 +4,7 @@ import BreakSelector from "../../modules/springPage/break/BreakSelector";
 import { useEffect, useState } from "react";
 import api from "../../services/axios";
 import SpringList from "../../modules/springPage/components/SpringList";
+import Footer from "../../components/layout/footer/Footer";
 
 // 전체 Wrapper
 const Wrapper = styled.div`
@@ -44,7 +45,7 @@ function SpringBreakPage() {
       const response = await api.get("/spring");
       const breakData = response.data.filter((item) => item.category === "break");
       setSpringBreak(breakData);
-      console.log("debug >> axios get OK!! ", breakData);
+      //console.log("debug >> axios get OK!! ", breakData);
     } catch (err) {
       console.log(err);
     }
@@ -109,6 +110,7 @@ function SpringBreakPage() {
           </button>
         ))}
       </div>
+      <Footer />
     </Wrapper>
   );
 }
