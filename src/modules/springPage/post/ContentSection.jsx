@@ -29,6 +29,7 @@ const Container = styled.div`
   flex-shrink: 1;
   width: 600px;
   margin-right: 5%;
+  margin-left: -5%;
   @media (max-width: 991px) {
     max-width: 100%;
   }
@@ -69,15 +70,14 @@ const ContentContainer = styled.div`
 `;
 
 const Heading = styled.h1`
-  width: 100%;
-  padding-right: 267px;
+  width: 80%;
   font-family: "Gamja Flower";
-  font-size: 40px;
+  font-size: 32px;
   color: #000;
-  font-weight: 700;
+  font-weight: bold;
   white-space: nowrap;
   text-align: center;
-  letter-spacing: -1.3px;
+  
   line-height: 1;
   @media (max-width: 991px) {
     max-width: 100%;
@@ -89,13 +89,11 @@ const Heading = styled.h1`
 
 const Description = styled.p`
   margin-top: 20px;
-  width: 100%;
+  width: 80%;
   font-family: "Gamja Flower";
-  font-size: 22px;
+  font-size: 25px;
   color: #000;
-  font-weight: bold;
   text-align: center;
-  letter-spacing: -1px;
   line-height: 30px;
   @media (max-width: 991px) {
     max-width: 100%;

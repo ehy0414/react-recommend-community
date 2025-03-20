@@ -23,7 +23,7 @@ const Container = styled.div`
   justify-content: center;
   flex-grow: 1;
   flex-shrink: 1;
-  margin-left: 7%;
+  margin-left: 10%;
   margin-top: 50px;
   @media (max-width: 991px) {
     max-width: 100%;
