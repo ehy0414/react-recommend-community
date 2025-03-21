@@ -25,11 +25,11 @@ const CareersButton = styled.button`
   white-space: nowrap;
   line-height: 1;
   justify-content: start;
-  border: none;
   cursor: pointer;
   color:gray;
   border-radius: 50px;
-  background-color: rgba(234, 234, 234, 1);
+  border: 1px solid lightgray;
+  background-color: rgb(255, 255, 255);
   
   @media (max-width: 991px) {
     white-space: initial;

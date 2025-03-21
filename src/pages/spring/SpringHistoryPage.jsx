@@ -94,6 +94,7 @@ function SpringHistoryPage() {
       
       {/* 게시글 리스트: 현재 페이지에 해당하는 데이터 전달 */}
       <SpringList data={currentData} />
+      
       {/* 페이지 네비게이션 */}
       <div style={{ textAlign: "center", marginTop: "20px" }}>
         {Array.from({ length: totalPages }).map((_, index) => (
