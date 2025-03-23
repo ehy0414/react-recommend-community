@@ -34,8 +34,8 @@ const SelectOption = styled.option`
   text-align: center;
 `;
 
-function SpringBreakPage() {
-  const [springBreak, setSpringBreak] = useState([]);
+function SummerBreakPage() {
+  const [summerBreak, setSsummerBreak] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [sortOrder, setSortOrder] = useState("desc"); // "desc" (최신순)이 기본값
   const pageSize = 12;  // 한 페이지에 표시될 항목 수
@@ -43,9 +43,9 @@ function SpringBreakPage() {
   // json-server에서 데이터 가져오기 및 category "break" 필터링
   const getBreak = async () => {
     try {
-      const response = await api.get("/spring");
+      const response = await api.get("/summer");
       const breakData = response.data.filter((item) => item.category === "break");
-      setSpringBreak(breakData);
+      setSsummerBreak(breakData);
       //console.log("debug >> axios get OK!! ", breakData);
     } catch (err) {
       console.log(err);
@@ -62,13 +62,13 @@ function SpringBreakPage() {
   }, [currentPage]);
 
   // 정렬: 최신순(내림차순) 또는 오래된 순(오름차순)
-  const sortedSpringBreak = [...springBreak].sort((a, b) => 
+  const sortedSummerBreak = [...summerBreak].sort((a, b) => 
     sortOrder === "desc" ? b.id - a.id : a.id - b.id
   );
 
   // 현재 페이지에 해당하는 데이터
-  const currentData = sortedSpringBreak.slice((currentPage - 1) * pageSize, currentPage * pageSize);
-  const totalPages = Math.ceil(sortedSpringBreak.length / pageSize);
+  const currentData = sortedSummerBreak.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+  const totalPages = Math.ceil(sortedSummerBreak.length / pageSize);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -76,7 +76,7 @@ function SpringBreakPage() {
 
   return (
     <Wrapper>
-      <BreakSelector season="SPRING" />
+      <BreakSelector season="SUMMER" />
 
       {/* 정렬 선택 UI */}
       <SortSelect
@@ -123,4 +123,4 @@ function SpringBreakPage() {
   );
 }
 
-export default SpringBreakPage;
+export default SummerBreakPage;

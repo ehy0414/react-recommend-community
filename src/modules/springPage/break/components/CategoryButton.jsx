@@ -84,7 +84,7 @@ const CategoryButton = () => {
 
     return (
         <CategoryContainer>
-                <CategoryButtons onClick={() => {navigate("/spring/nature")}}>
+                <CategoryButtons onClick={() => {navigate(`/spring/nature`)}}>
                   <CategoryButtonText><p>자연</p></CategoryButtonText>
                 </CategoryButtons>
                 <CategorySpacing>
@@ -95,7 +95,7 @@ const CategoryButton = () => {
                   </SelectedCategoryButton>
                 </CategorySpacing>
                 <CategorySpacing>
-                  <CategoryButtons onClick={() => {navigate("/spring/history")}}>
+                  <CategoryButtons onClick={() => {navigate(`/spring/history`)}}>
                     <CategoryButtonText>
                       <p>역사</p>
                     </CategoryButtonText>

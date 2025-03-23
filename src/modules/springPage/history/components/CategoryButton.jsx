@@ -78,19 +78,6 @@ const CategoryButtonText = styled.span`
   }
 `;
 
-const EmptyCategoryButton = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1px;
-  border-radius: 50px;
-  border: 1px solid #f3c300;
-  width: 80px;
-  height: 42px;
-  background-color: transparent;
-  cursor: pointer;
-`;
-
 const CategoryButton = () => {
     const navigate = useNavigate();
 

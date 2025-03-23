@@ -3,10 +3,10 @@ import React from "react";
 import styled from "styled-components";
 import CategoryButton from "./components/CategoryButton";
 
-const NatureSelector = () => {
+const NatureSelector = ({season}) => {
   return (
     <BrandContainer>
-      <BrandTitle>SPRING</BrandTitle>
+      <BrandTitle>{season}</BrandTitle>
       <CategoryButton />
     </BrandContainer>
   );

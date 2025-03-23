@@ -49,7 +49,6 @@ const CardContainer = styled.div`
   border-radius: 25px;
   position: relative;
   overflow: hidden;
-  cursor: pointer;
 
   img {
     width: 100%;
