@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import axios from 'axios';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import api from '../../services/axios';
 
 // 전체 페이지 컨테이너
 const Container = styled.div`
@@ -114,6 +114,7 @@ function CreatePost({season}) {
     setCategory(e.target.value);
   };
 
+  // 빈칸 입력시 에러 출력
   const validateForm = () => {
     const newErrors = {};
     if (!title.trim()) {
@@ -155,7 +156,7 @@ function CreatePost({season}) {
       };
 
       try {
-        await axios.post(`http://localhost:8000/${season}`, postData, {
+        await api.post(`/${season}`, postData, {
           headers: { 'Content-Type': 'application/json' },
         });
         alert('게시글이 성공적으로 등록되었습니다.');

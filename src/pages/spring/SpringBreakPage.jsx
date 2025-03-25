@@ -1,11 +1,11 @@
 "use client";
 import styled from "styled-components";
-import BreakSelector from "../../modules/springPage/break/BreakSelector";
 import { useEffect, useState } from "react";
 import api from "../../services/axios";
 import SpringList from "../../modules/springPage/components/SpringList";
 import Footer from "../../components/layout/footer/Footer";
 import { Button } from "../../modules/springPage/components/Button";
+import BreakSelector from "../../modules/category/break/BreakSelector";
 
 // 전체 Wrapper
 const Wrapper = styled.div`

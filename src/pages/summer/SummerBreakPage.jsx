@@ -1,11 +1,12 @@
 "use client";
 import styled from "styled-components";
-import BreakSelector from "../../modules/springPage/break/BreakSelector";
 import { useEffect, useState } from "react";
 import api from "../../services/axios";
 import SpringList from "../../modules/springPage/components/SpringList";
 import Footer from "../../components/layout/footer/Footer";
 import { Button } from "../../modules/springPage/components/Button";
+import BreakSelector from "../../modules/category/break/BreakSelector";
+import SummerList from "../../modules/summerPage/components/SummerList";
 
 // 전체 Wrapper
 const Wrapper = styled.div`
@@ -96,7 +97,7 @@ function SummerBreakPage() {
 
       
       {/* 게시글 리스트: 현재 페이지에 해당하는 데이터 전달 */}
-      <SpringList data={currentData} />
+      <SummerList data={currentData} />
 
       {/* 페이지 네비게이션 */}
       <div style={{ textAlign: "center", marginTop: "20px" }}>

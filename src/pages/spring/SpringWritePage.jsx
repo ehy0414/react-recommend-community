@@ -1,8 +1,9 @@
 import styled from "styled-components";
-import CreatePost from "../../modules/springPage/components/CreatePost";
-import HeaderTitle from "../../modules/springPage/components/HeaderTitle";
+
 import Footer from "../../components/layout/footer/Footer";
 import { useEffect } from "react";
+import CreatePost from "../../modules/post/CreatePost";
+import HeaderTitle from "../../modules/aboutUsPage/components/HeaderTitle";
 
 const SpringWritePage = () => {
     const Wrapper = styled.div`

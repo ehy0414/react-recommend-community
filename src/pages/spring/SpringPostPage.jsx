@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import api from "../../services/axios";
-import ImageContainer from "../../modules/springPage/post/ImageContainer";
-import ContentSection from "../../modules/springPage/post/ContentSection";
 import Footer from "../../components/layout/footer/Footer";
-import HeaderTitle from "../../modules/springPage/components/HeaderTitle";
+import HeaderTitle from "../../modules/aboutUsPage/components/HeaderTitle";
+import ImageContainer from "../../modules/post/ImageContainer";
+import ContentSection from "../../modules/post/ContentSection";
+
 
 const Wrapper = styled.div`
     position: absolute;

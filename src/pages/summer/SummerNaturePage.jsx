@@ -2,10 +2,10 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import api from "../../services/axios";
-import SpringList from "../../modules/springPage/components/SpringList";
 import Footer from "../../components/layout/footer/Footer";
-import NatureSelector from "../../modules/springPage/nature/NatureSelector";
 import { Button } from "../../modules/springPage/components/Button";
+import NatureSelector from "../../modules/category/nature/NatureSelector";
+import SummerList from "../../modules/summerPage/components/SummerList";
 
 // 전체 Wrapper
 const Wrapper = styled.div`
@@ -34,8 +34,8 @@ const SelectOption = styled.option`
   text-align: center;
 `;
 
-function SpringNaturePage() {
-  const [springNature, setSpringNature] = useState([]);
+function SummerNaturePage() {
+  const [summerNature, setSummerNature] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [sortOrder, setSortOrder] = useState("desc"); // "desc" (최신순)이 기본값
   const pageSize = 12;  // 한 페이지에 표시될 항목 수
@@ -43,9 +43,9 @@ function SpringNaturePage() {
   // json-server에서 데이터 가져오기 및 category "break" 필터링
   const getBreak = async () => {
     try {
-      const response = await api.get("/spring");
+      const response = await api.get("/summer");
       const natureData = response.data.filter((item) => item.category === "nature");
-      setSpringNature(natureData);
+      setSummerNature(natureData);
     } catch (err) {
       console.log(err);
     }
@@ -61,13 +61,13 @@ function SpringNaturePage() {
   }, [currentPage]);
 
   // 정렬: 최신순(내림차순) 또는 오래된 순(오름차순)
-  const sortedspringNature = [...springNature].sort((a, b) => 
+  const sortedsummerNature = [...summerNature].sort((a, b) => 
     sortOrder === "desc" ? b.id - a.id : a.id - b.id
   );
 
   // 현재 페이지에 해당하는 데이터
-  const currentData = sortedspringNature.slice((currentPage - 1) * pageSize, currentPage * pageSize);
-  const totalPages = Math.ceil(sortedspringNature.length / pageSize);
+  const currentData = sortedsummerNature.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+  const totalPages = Math.ceil(sortedsummerNature.length / pageSize);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -75,7 +75,7 @@ function SpringNaturePage() {
 
   return (
     <Wrapper>
-      <NatureSelector season="SPRING"/>
+      <NatureSelector season="SUMMER"/>
       {/* 정렬 선택 UI */}
       <SortSelect
         value={sortOrder}
@@ -94,7 +94,7 @@ function SpringNaturePage() {
 
 
       {/* 게시글 리스트: 현재 페이지에 해당하는 데이터 전달 */}
-      <SpringList data={currentData} />
+      <SummerList data={currentData} />
       {/* 페이지 네비게이션 */}
       <div style={{ textAlign: "center", marginTop: "20px" }}>
         {Array.from({ length: totalPages }).map((_, index) => (
@@ -120,4 +120,4 @@ function SpringNaturePage() {
   );
 }
 
-export default SpringNaturePage;
+export default SummerNaturePage;

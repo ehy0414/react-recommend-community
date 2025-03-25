@@ -1,13 +1,19 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import CategoryButton from "./components/CategoryButton";
 
 const NatureSelector = ({season}) => {
+  const [seasonTitle, setSeasonTitle] = useState("");
+      //소문자 변환
+      useEffect(() => {
+        setSeasonTitle(season.toLowerCase());
+      },[season]);
+
   return (
     <BrandContainer>
       <BrandTitle>{season}</BrandTitle>
-      <CategoryButton />
+      <CategoryButton season={seasonTitle}/>
     </BrandContainer>
   );
 };

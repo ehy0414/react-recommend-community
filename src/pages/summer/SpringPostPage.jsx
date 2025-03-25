@@ -5,7 +5,7 @@ import api from "../../services/axios";
 import ImageContainer from "../../modules/springPage/post/ImageContainer";
 import ContentSection from "../../modules/springPage/post/ContentSection";
 import Footer from "../../components/layout/footer/Footer";
-import HeaderTitle from "../../modules/springPage/components/HeaderTitle";
+import HeaderTitle from "../../modules/post/HeaderTitle";
 
 const Wrapper = styled.div`
     position: absolute;

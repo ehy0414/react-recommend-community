@@ -78,25 +78,28 @@ const CategoryButtonText = styled.span`
   }
 `;
 
-const CategoryButton = () => {
+
+const CategoryButton = (props) => {
     const navigate = useNavigate();
 
     return (
         <CategoryContainer>
-                <CategoryButtons onClick={() => {navigate("/spring/nature")}}>
+                <CategoryButtons onClick={() => {navigate(`/${props.season}/nature`)}}>
                   <CategoryButtonText><p>자연</p></CategoryButtonText>
                 </CategoryButtons>
                 <CategorySpacing>
-                <CategoryButtons onClick={() => {navigate("/spring/break")}}>
-                  <CategoryButtonText><p>휴식</p></CategoryButtonText>
-                </CategoryButtons>
-                </CategorySpacing>
-                <CategorySpacing>
-                  <SelectedCategoryButton >
+                  <SelectedCategoryButton>
                     <SelectedCategoryText>
-                      역사
+                      휴식
                     </SelectedCategoryText>
                   </SelectedCategoryButton>
+                </CategorySpacing>
+                <CategorySpacing>
+                  <CategoryButtons onClick={() => {navigate(`/${props.season}/history`)}}>
+                    <CategoryButtonText>
+                      <p>역사</p>
+                    </CategoryButtonText>
+                  </CategoryButtons>
                 </CategorySpacing>
         </CategoryContainer>
     );

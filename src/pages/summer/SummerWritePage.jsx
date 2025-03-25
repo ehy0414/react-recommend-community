@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import CreatePost from "../../modules/springPage/components/CreatePost";
+import CreatePost from "../../modules/post/CreatePost";
 import HeaderTitle from "../../modules/springPage/components/HeaderTitle";
 import Footer from "../../components/layout/footer/Footer";
 import { useEffect } from "react";
 
-const SpringWritePage = () => {
+const SummerWritePage = () => {
     const Wrapper = styled.div`
     position: absolute;
     width: 100%;
@@ -17,11 +17,11 @@ const SpringWritePage = () => {
 
     return(
         <Wrapper>
-            <HeaderTitle title="SPRING" />
-            <CreatePost season="spring"/>
+            <HeaderTitle title="SUMMER" />
+            <CreatePost season="summer"/>
             <Footer />
         </Wrapper>
     )
 }
 
-export default SpringWritePage;
+export default SummerWritePage;

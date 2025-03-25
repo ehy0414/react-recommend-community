@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import api from "../../services/axios";
 import SpringList from "../../modules/springPage/components/SpringList";
 import Footer from "../../components/layout/footer/Footer";
-import NatureSelector from "../../modules/springPage/nature/NatureSelector";
 import { Button } from "../../modules/springPage/components/Button";
+import NatureSelector from "../../modules/category/nature/NatureSelector";
 
 // 전체 Wrapper
 const Wrapper = styled.div`

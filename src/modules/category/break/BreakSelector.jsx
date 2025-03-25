@@ -1,13 +1,20 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import CategoryButton from "./components/CategoryButton";
 
-const HistorySelector = ({season}) => {
+const BreakSelector = ({season}) => {
+  const [seasonTitle, setSeasonTitle] = useState("");
+  //소문자 변환
+  useEffect(() => {
+    setSeasonTitle(season.toLowerCase());
+  },[season]);
+  
+  //console.log(seasonTitle);
   return (
     <BrandContainer>
       <BrandTitle>{season}</BrandTitle>
-      <CategoryButton />
+      <CategoryButton season={seasonTitle}/>
     </BrandContainer>
   );
 };
@@ -42,4 +49,4 @@ const BrandTitle = styled.header`
   }
 `;
 
-export default HistorySelector;
+export default BreakSelector;

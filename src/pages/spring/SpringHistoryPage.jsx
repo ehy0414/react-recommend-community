@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import api from "../../services/axios";
 import SpringList from "../../modules/springPage/components/SpringList";
 import Footer from "../../components/layout/footer/Footer";
-import HistorySelector from "../../modules/springPage/history/HistorySelector";
 import { Button } from "../../modules/springPage/components/Button";
+import HistorySelector from "../../modules/category/history/HistorySelector";
 
 // 전체 Wrapper
 const Wrapper = styled.div`
