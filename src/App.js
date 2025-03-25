@@ -11,6 +11,8 @@ import SpringPostPage from './pages/spring/SpringPostPage';
 import SummerBreakPage from './pages/summer/SummerBreakPage';
 import SummerNaturePage from './pages/summer/SummerNaturePage';
 import SummerHistoryPage from './pages/summer/SummerHistoryPage';
+import SummerWritePage from './pages/summer/SummerWritePage';
+import SummerPostPage from './pages/summer/SummerPostPage';
 
 function App() {
   return (
@@ -31,6 +33,8 @@ function App() {
         <Route path='/summer/nature' element={<SummerNaturePage />}></Route>
         <Route path='/summer/break' element={<SummerBreakPage />}></Route>
         <Route path='/summer/history' element={<SummerHistoryPage />}></Route>
+        <Route path='/summer/write' element={<SummerWritePage />}></Route>
+        <Route path='/summer/:id' element={<SummerPostPage />}></Route>
       </Routes>
 
     </BrowserRouter>

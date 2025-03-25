@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Footer from "../../components/layout/footer/Footer";
 import { useEffect } from "react";
 import CreatePost from "../../modules/post/CreatePost";
-import HeaderTitle from "../../modules/aboutUsPage/components/HeaderTitle";
+import HeaderTitle from "../../modules/post/HeaderTitle";
 
 const SpringWritePage = () => {
     const Wrapper = styled.div`

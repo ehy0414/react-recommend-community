@@ -1,4 +1,3 @@
-"use client";
 import React, { useState } from "react";
 import styled from "styled-components";
 import springImg from "../../../assets/spring.jpg";
@@ -8,22 +7,22 @@ import winterImg from "../../../assets/winter.jpg";
 
 const images = [
   {
-    src: `${springImg}`,
+    src: springImg,
     title: "봄의 산뜻한 하루",
     subTitle: "A fresh day of spring",
   },
   {
-    src: `${summerImg}`,
+    src: summerImg,
     title: "여름의 시원한 행복",
     subTitle: "Cool happiness in summer",
   },
   {
-    src: `${autumnImg}`,
+    src: autumnImg,
     title: "가을의 따뜻한 감성",
     subTitle: "Warm emotions in autumn",
   },
   {
-    src: `${winterImg}`,
+    src: winterImg,
     title: "겨울의 포근한 순간",
     subTitle: "Cozy moments in winter",
   },
@@ -54,7 +53,6 @@ const StyledImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-
 `;
 
 const TextOverlay = styled.div`
@@ -67,7 +65,6 @@ const TextOverlay = styled.div`
   font-family: "Rubik", sans-serif;
   font-weight: 700;
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-  
 `;
 
 const Title = styled.p`
@@ -92,16 +89,16 @@ const ArrowButton = styled.button`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: transparent; /* 배경 제거 */
+  background: transparent;
   color: white;
   border: none;
-  font-size: 45px; /* 화살표 크기 키움 */
+  font-size: 45px;
   cursor: pointer;
   z-index: 2;
   transition: transform 0.2s ease-in-out;
 
   &:hover {
-    transform: translateY(-50%) scale(1.2); /* 호버 시 크기 확대 */
+    transform: translateY(-50%) scale(1.2);
   }
 `;
 
@@ -116,22 +113,23 @@ const NextButton = styled(ArrowButton)`
 function ImageContainer() {
   const [index, setIndex] = useState(0);
 
-
-  // 이전 이미지
   const prevSlide = () => {
     setIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
   };
 
-  // 다음 이미지
   const nextSlide = () => {
     setIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
+
   return (
     <StyledSlider>
-      <PrevButton onClick={prevSlide}>❮</PrevButton>
+      <PrevButton onClick={(e) => { e.stopPropagation(); prevSlide(); }}>❮</PrevButton>
       {images.map((image, i) => (
-        <Slide key={i} active={i === index}>
+        <Slide
+          key={i}
+          active={i === index}
+        >
           <StyledImage src={image.src} alt={`Season ${i + 1}`} />
           <TextOverlay>
             <Title>{image.title}</Title>
@@ -139,7 +137,7 @@ function ImageContainer() {
           </TextOverlay>
         </Slide>
       ))}
-      <NextButton onClick={nextSlide}>❯</NextButton>
+      <NextButton onClick={(e) => { e.stopPropagation(); nextSlide(); }}>❯</NextButton>
     </StyledSlider>
   );
 }

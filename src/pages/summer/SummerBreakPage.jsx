@@ -3,9 +3,9 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 import api from "../../services/axios";
 import Footer from "../../components/layout/footer/Footer";
-import { Button } from "../../modules/springPage/components/Button";
 import BreakSelector from "../../modules/category/break/BreakSelector";
 import SummerList from "../../modules/summerPage/components/SummerList";
+import { Button } from "../../modules/summerPage/components/Button";
 
 // 전체 Wrapper
 const Wrapper = styled.div`

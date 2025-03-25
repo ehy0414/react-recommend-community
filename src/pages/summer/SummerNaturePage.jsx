@@ -3,9 +3,9 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 import api from "../../services/axios";
 import Footer from "../../components/layout/footer/Footer";
-import { Button } from "../../modules/springPage/components/Button";
 import NatureSelector from "../../modules/category/nature/NatureSelector";
 import SummerList from "../../modules/summerPage/components/SummerList";
+import { Button } from "../../modules/summerPage/components/Button";
 
 // 전체 Wrapper
 const Wrapper = styled.div`
@@ -110,7 +110,7 @@ function SummerNaturePage() {
       ) : (
         <Message>게시글이 등록되지 않았어요.</Message>
       )}
-      
+
       {/* 페이지 네비게이션 */}
       <div style={{ textAlign: "center", marginTop: "20px" }}>
         {Array.from({ length: totalPages }).map((_, index) => (

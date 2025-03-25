@@ -43,7 +43,7 @@ const CareersButton = styled.button`
 export function Button() {
   const navigate = useNavigate();
   return (
-    <ControlsWrapper onClick={() => {navigate("/spring/write")}}>
+    <ControlsWrapper onClick={() => {navigate("/summer/write")}}>
           <CareersButton>
             글쓰기
           </CareersButton>
