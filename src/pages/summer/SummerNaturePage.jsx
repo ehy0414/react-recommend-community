@@ -34,6 +34,17 @@ const SelectOption = styled.option`
   text-align: center;
 `;
 
+// 빈 게시글 메시지 스타일
+const Message = styled.p`
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: "Gamja Flower";
+  color: #555;
+  margin-top: 40px;
+  margin-bottom: 20%;
+`;
+
 function SummerNaturePage() {
   const [summerNature, setSummerNature] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -93,8 +104,13 @@ function SummerNaturePage() {
       <Button />
 
 
-      {/* 게시글 리스트: 현재 페이지에 해당하는 데이터 전달 */}
-      <SummerList data={currentData} />
+      {/* 게시글 리스트 또는 빈 게시글 메시지 출력 */}
+      {currentData.length > 0 ? (
+        <SummerList data={currentData} />
+      ) : (
+        <Message>게시글이 등록되지 않았어요.</Message>
+      )}
+      
       {/* 페이지 네비게이션 */}
       <div style={{ textAlign: "center", marginTop: "20px" }}>
         {Array.from({ length: totalPages }).map((_, index) => (

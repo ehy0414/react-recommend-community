@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import CreatePost from "../../modules/post/CreatePost";
-import HeaderTitle from "../../modules/springPage/components/HeaderTitle";
 import Footer from "../../components/layout/footer/Footer";
 import { useEffect } from "react";
+import HeaderTitle from "../../modules/post/HeaderTitle";
 
 const SummerWritePage = () => {
     const Wrapper = styled.div`

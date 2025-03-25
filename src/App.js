@@ -10,6 +10,7 @@ import SpringWritePage from './pages/spring/SpringWritePage';
 import SpringPostPage from './pages/spring/SpringPostPage';
 import SummerBreakPage from './pages/summer/SummerBreakPage';
 import SummerNaturePage from './pages/summer/SummerNaturePage';
+import SummerHistoryPage from './pages/summer/SummerHistoryPage';
 
 function App() {
   return (
