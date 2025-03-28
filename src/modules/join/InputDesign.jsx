@@ -12,17 +12,18 @@ const InputDesign = () => {
 
   return (
     <FormContainer>
-      <FormInput label="Email" value="이메일을 입력해주세요..." type="email" />
-      <FormInput label="Password" value="비밀번호를 입력해주세요..." type="password" />
+      <FormInput label="이메일" value="이메일을 입력해주세요..." type="email" />
+      <FormInput label="비밀번호" value="비밀번호를 입력해주세요..." type="password" />
       <Button onClick={handleRegister}>회원가입</Button>
     </FormContainer>
   );
 };
 
 const FormContainer = styled.form`
-  margin-left: 10%;
+  margin: 0 auto;
+  margin-top: 20px;
   display: flex;
-  width: 100%;
+  width: 40%;
   min-width: 320px;
   padding: 24px;
   flex-direction: column;

@@ -11,29 +11,30 @@ const Button = ({ children, onClick }) => {
 };
 
 const ButtonWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 15%;
 `;
 
 const StyledButton = styled.button`
   color: #f5f5f5;
-  font-family: Inter;
-  font-size: 16px;
-  font-weight: 400;
+  font-family: "Gamja Flower";
+  font-size: 20px;
+  font-weight: bold;
   line-height: 100%;
   padding: 12px;
   gap: 8px;
   flex: 1;
   border-radius: 8px;
   border: none;
-  background-color: #4318d1;
+  background-color: #ff7f50;;
   cursor: pointer;
   transition: background-color 0.2s ease;
 
   &:hover {
-    background-color: #3614b0;
+    background-color:rgb(255, 68, 0);;
   }
 `;
 
