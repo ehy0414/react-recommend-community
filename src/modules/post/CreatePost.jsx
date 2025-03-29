@@ -104,26 +104,22 @@ function CreatePost({ season }) {
   const [category, setCategory] = useState('');
   const [image, setImage] = useState(null);
   const [errors, setErrors] = useState({});
-  const [user, setUser] = useState(null); // ✅ 로그인된 사용자 정보
+  const [user, setUser] = useState(null); // 로그인된 사용자 정보
 
   const navigate = useNavigate();
 
-  // ✅ 로그인 여부 확인 (로그인 안 되어 있으면 홈으로 이동)
+  // 로그인 여부 확인 (로컬스토리지에서 사용자 정보 가져오기)
   useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const response = await api.get('/auth/user'); // 현재 로그인한 사용자 정보 가져오기
-        if (response.data) {
-          setUser(response.data);
-        } else {
-          navigate('/'); // 로그인 안 되어 있으면 홈으로 이동
-        }
-      } catch (error) {
-        navigate('/');
-      }
-    };
-
-    fetchUser();
+    const storedUserId = localStorage.getItem('userId');
+    if (storedUserId) {
+      setUser({
+        id: storedUserId,
+        name: localStorage.getItem('userName'), // 사용자 이름도 가져오기
+      });
+    } else {
+      alert("로그인 후 작성이 가능합니다!");
+      navigate('/user/login'); // 로그인 안 되어 있으면 홈으로 이동
+    }
   }, [navigate]);
 
   const handleImageChange = (e) => {
@@ -164,6 +160,7 @@ function CreatePost({ season }) {
 
     if (!user) {
       alert('로그인이 필요합니다.');
+      navigate("/user/login");
       return;
     }
 
@@ -178,7 +175,7 @@ function CreatePost({ season }) {
         content,
         category,
         image: base64Image,
-        userId: user.id, // ✅ 현재 로그인한 유저 ID 저장 (Foreign Key)
+        userId: user.id, // 로그인한 사용자 ID를 외래키로 저장
       };
 
       try {

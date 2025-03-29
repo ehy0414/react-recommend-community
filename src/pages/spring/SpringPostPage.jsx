@@ -3,9 +3,9 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import api from "../../services/axios";
 import Footer from "../../components/layout/footer/Footer";
-import HeaderTitle from "../../modules/aboutUsPage/components/HeaderTitle";
 import ImageContainer from "../../modules/post/ImageContainer";
 import ContentSection from "../../modules/post/ContentSection";
+import HeaderTitle from "../../modules/post/HeaderTitle";
 
 
 const Wrapper = styled.div`
