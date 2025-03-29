@@ -1,19 +1,20 @@
 "use client";
-import * as React from "react";
+import React from "react";
 import styled from "styled-components";
 
-const FormInput = ({ label, value, type = "text", onChange, name }) => {
+const FormInput = ({ label, value, type = "text", name, onChange, error }) => {
   return (
     <InputWrapper>
-      <InputLabel htmlFor={name}>{label}</InputLabel>
+      <InputLabel>{label}</InputLabel>
       <StyledInput
-        id={name}
-        name={name}
+        placeholder={label + "을 입력해주세요."}
         type={type}
-        value={value} // 실제 입력값 반영
-        onChange={onChange} // 입력값 변경 반영
-        placeholder={`${label}을 입력해주세요...`}
+        name={name}
+        value={value}
+        onChange={onChange}
+        className={error ? "error" : ""}
       />
+      {error && <ErrorMessage>{error}</ErrorMessage>}
     </InputWrapper>
   );
 };
@@ -57,6 +58,16 @@ const StyledInput = styled.input`
   &:focus {
     border-color: black;
   }
+
+  &.error {
+    border-color: red;
+  }
+`;
+
+const ErrorMessage = styled.p`
+  color: red;
+  font-size: 14px;
+  margin: 0;
 `;
 
 export default FormInput;
