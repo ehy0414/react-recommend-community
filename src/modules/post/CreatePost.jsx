@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import api from '../../services/axios';
@@ -25,7 +25,7 @@ const FormWrapper = styled.form`
   align-items: stretch;
 `;
 
-// 카테고리 선택을 위한 Select 스타일
+// 카테고리 선택 Select 스타일
 const CategorySelect = styled.select`
   width: 100%;
   padding: 1rem;
@@ -45,10 +45,11 @@ const InputField = styled.input`
   margin-bottom: 1.5rem;
   border: 1px solid #555;
   border-radius: 8px;
-  background-color: # fff;
+  background-color: #fff;
   color: #000;
   font-size: 1.2rem;
   font-family: "Gamja Flower";
+
   &::placeholder {
     color: #bbb;
   }
@@ -97,14 +98,33 @@ const SubmitButton = styled.button`
   }
 `;
 
-function CreatePost({season}) {
+function CreatePost({ season }) {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [category, setCategory] = useState('');
   const [image, setImage] = useState(null);
   const [errors, setErrors] = useState({});
+  const [user, setUser] = useState(null); // ✅ 로그인된 사용자 정보
 
   const navigate = useNavigate();
+
+  // ✅ 로그인 여부 확인 (로그인 안 되어 있으면 홈으로 이동)
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const response = await api.get('/auth/user'); // 현재 로그인한 사용자 정보 가져오기
+        if (response.data) {
+          setUser(response.data);
+        } else {
+          navigate('/'); // 로그인 안 되어 있으면 홈으로 이동
+        }
+      } catch (error) {
+        navigate('/');
+      }
+    };
+
+    fetchUser();
+  }, [navigate]);
 
   const handleImageChange = (e) => {
     setImage(e.target.files[0]);
@@ -114,7 +134,7 @@ function CreatePost({season}) {
     setCategory(e.target.value);
   };
 
-  // 빈칸 입력시 에러 출력
+  // 빈칸 입력 시 에러 출력
   const validateForm = () => {
     const newErrors = {};
     if (!title.trim()) {
@@ -142,6 +162,11 @@ function CreatePost({season}) {
       setErrors({});
     }
 
+    if (!user) {
+      alert('로그인이 필요합니다.');
+      return;
+    }
+
     // 이미지를 base64로 변환하여 json-server에 저장
     const reader = new FileReader();
     reader.readAsDataURL(image);
@@ -153,6 +178,7 @@ function CreatePost({season}) {
         content,
         category,
         image: base64Image,
+        userId: user.id, // ✅ 현재 로그인한 유저 ID 저장 (Foreign Key)
       };
 
       try {
@@ -170,8 +196,8 @@ function CreatePost({season}) {
   return (
     <Container>
       <FormWrapper onSubmit={handleSubmit}>
-      {/* 카테고리 선택을 위한 select 컴포넌트 */}
-      <CategorySelect value={category} onChange={handleCategoryChange} required>
+        {/* 카테고리 선택을 위한 select 컴포넌트 */}
+        <CategorySelect value={category} onChange={handleCategoryChange} required>
           <option value="" disabled>카테고리를 선택하세요</option>
           <option value="nature">자연</option>
           <option value="break">휴식</option>

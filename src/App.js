@@ -14,6 +14,7 @@ import SummerHistoryPage from './pages/summer/SummerHistoryPage';
 import SummerWritePage from './pages/summer/SummerWritePage';
 import SummerPostPage from './pages/summer/SummerPostPage';
 import JoinPage from './pages/JoinPage';
+import LoginPage from './pages/LoginPage';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path='/' element={<HomePage />}></Route>
         <Route path='/aboutUs' element={<AboutUsPage />}></Route>
         <Route path='/user/join' element={<JoinPage />}></Route>
+        <Route path='/user/login' element={<LoginPage />}></Route>
         
         {/* Spring Page */}
         <Route path='/spring/nature' element={<SpringNaturePage />}></Route>
