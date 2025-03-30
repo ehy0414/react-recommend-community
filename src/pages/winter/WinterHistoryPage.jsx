@@ -52,8 +52,8 @@ function WinterHistoryPage() {
   const [sortOrder, setSortOrder] = useState("desc"); // "desc" (최신순)이 기본값
   const pageSize = 12;  // 한 페이지에 표시될 항목 수
 
-  // json-server에서 데이터 가져오기 및 category "break" 필터링
-  const getBreak = async () => {
+  // json-server에서 데이터 가져오기 및 category "history" 필터링
+  const getHistory = async () => {
     try {
       const response = await api.get("/winter");
       const historyData = response.data.filter((item) => item.category === "history");
@@ -64,7 +64,7 @@ function WinterHistoryPage() {
   };
 
   useEffect(() => {
-    getBreak();
+    getHistory();
   }, []);
 
   // 페이지 이동 시 화면 상단으로 스크롤

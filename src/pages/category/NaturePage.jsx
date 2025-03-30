@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 import api from "../../services/axios";
 import Footer from "../../components/layout/footer/Footer";
-import HistorySelector from "../../modules/category/history/HistorySelector";
+import NatureSelector from "../../modules/category/nature/NatureSelector";
 import { Button } from "../../modules/autumnPage/components/Button";
 import AutumnList from "../../modules/autumnPage/components/AutumnList";
 
@@ -45,25 +45,25 @@ const Message = styled.p`
   margin-bottom: 20%;
 `;
 
-function AutumnHistoryPage() {
-  const [autumnHistory, setAutumnHistory] = useState([]);
+function NaturePage() {
+  const [autumnNature, setAutumnNature] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [sortOrder, setSortOrder] = useState("desc"); // "desc" (최신순)이 기본값
   const pageSize = 12;  // 한 페이지에 표시될 항목 수
 
-  // json-server에서 데이터 가져오기 및 category "history" 필터링
-  const getHistory = async () => {
+  // json-server에서 데이터 가져오기 및 category "break" 필터링
+  const getBreak = async () => {
     try {
       const response = await api.get("/autumn");
-      const historyData = response.data.filter((item) => item.category === "history");
-      setAutumnHistory(historyData);
+      const natureData = response.data.filter((item) => item.category === "nature");
+      setAutumnNature(natureData);
     } catch (err) {
       console.log(err);
     }
   };
 
   useEffect(() => {
-    getHistory();
+    getBreak();
   }, []);
 
   // 페이지 이동 시 화면 상단으로 스크롤
@@ -72,13 +72,13 @@ function AutumnHistoryPage() {
   }, [currentPage]);
 
   // 정렬: 최신순(내림차순) 또는 오래된 순(오름차순)
-  const sortedAutumnHistory = [...autumnHistory].sort((a, b) => 
+  const sortedAutumnNature = [...autumnNature].sort((a, b) => 
     sortOrder === "desc" ? b.id - a.id : a.id - b.id
   );
 
   // 현재 페이지에 해당하는 데이터
-  const currentData = sortedAutumnHistory.slice((currentPage - 1) * pageSize, currentPage * pageSize);
-  const totalPages = Math.ceil(sortedAutumnHistory.length / pageSize);
+  const currentData = sortedAutumnNature.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+  const totalPages = Math.ceil(sortedAutumnNature.length / pageSize);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -86,8 +86,7 @@ function AutumnHistoryPage() {
 
   return (
     <Wrapper>
-      <HistorySelector season="AUTUMN"/>
-
+      <NatureSelector season="AUTUMN"/>
       {/* 정렬 선택 UI */}
       <SortSelect
         value={sortOrder}
@@ -103,14 +102,14 @@ function AutumnHistoryPage() {
 
       {/* 글쓰기 버튼 */}
       <Button />
-      
+
+
       {/* 게시글 리스트 또는 빈 게시글 메시지 출력 */}
       {currentData.length > 0 ? (
         <AutumnList data={currentData} />
       ) : (
         <Message>게시글이 등록되지 않았어요.</Message>
       )}
-
 
       {/* 페이지 네비게이션 */}
       <div style={{ textAlign: "center", marginTop: "20px" }}>
@@ -137,4 +136,4 @@ function AutumnHistoryPage() {
   );
 }
 
-export default AutumnHistoryPage;
+export default NaturePage;

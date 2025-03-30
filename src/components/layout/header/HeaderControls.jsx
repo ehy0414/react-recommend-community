@@ -95,11 +95,42 @@ const LogoutButton = styled.button`
   }
 `;
 
+const SESSION_TIMEOUT = 20 * 60 * 1000; // 30분 (단위: 밀리초)
+
 export function HeaderControls() {
   const navigate = useNavigate();
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userName, setUserName] = useState("");
+
+  
+    // ✅ 1. 자동 로그아웃 체크 (30분 후)
+    useEffect(() => {
+      const checkSession = () => {
+        const loginTime = localStorage.getItem("loginTime");
+  
+        if (loginTime) {
+          const currentTime = new Date().getTime();
+          if (currentTime - parseInt(loginTime) > SESSION_TIMEOUT) {
+            seesionLogout(); // 자동 로그아웃 실행
+          }
+        }
+      };
+  
+      const interval = setInterval(checkSession, 1000); // 1초마다 체크
+      return () => clearInterval(interval); // 컴포넌트 언마운트 시 정리
+    }, []);
+  
+    // ✅ 2. 로그아웃 함수 (자동 로그아웃시 호출)
+    const seesionLogout = () => {
+      localStorage.removeItem("userId");
+      localStorage.removeItem("userName");
+      localStorage.removeItem("userEmail");
+      localStorage.removeItem("loginTime");
+      alert("세션이 만료되어 자동 로그아웃 되었습니다.");
+      navigate("/"); // 로그인 페이지로 이동
+      window.location.reload();
+    };
 
   useEffect(() => {
     // 로그인 여부 확인
