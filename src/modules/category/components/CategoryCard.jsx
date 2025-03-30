@@ -56,7 +56,7 @@ const Title = styled.p`
   text-overflow: ellipsis; 
 `;
 
-const NatureCard = ({ title, content, image, natureId, season }) => {
+const CategoryCard = ({ title, content, image, categoryId, season }) => {
   const { ref, inView } = useInView({
     threshold: 0.5,            
     triggerOnce: true,
@@ -69,7 +69,7 @@ const NatureCard = ({ title, content, image, natureId, season }) => {
     <AnimatedCardContainer  
       ref={ref} 
       $inView={inView}
-      onClick={() => navigate(`/${season}/${natureId}`)}  // ✅ 동적으로 URL 설정
+      onClick={() => navigate(`/${season}/${categoryId}`)}  // ✅ 동적으로 URL 설정
     >
       <Image src={image} alt="img" />
       <TitleContainer>
@@ -79,4 +79,4 @@ const NatureCard = ({ title, content, image, natureId, season }) => {
   );
 };
 
-export default NatureCard;
+export default CategoryCard;

@@ -26,6 +26,7 @@ import WinterHistoryPage from './pages/winter/WinterHistoryPage';
 import WinterWritePage from './pages/winter/WinterWritePage';
 import WinterPostPage from './pages/winter/WinterPostPage';
 import NaturePage from './pages/category/NaturePage';
+import BreakPage from './pages/category/BreakPage';
 
 function App() {
   return (
@@ -65,8 +66,9 @@ function App() {
         <Route path='/winter/write' element={<WinterWritePage />}></Route>
         <Route path='/winter/:id' element={<WinterPostPage />}></Route>
 
-        {/* Nature Page */}
+        {/* Category Page */}
         <Route path='/season/nature' element={<NaturePage />}></Route>
+        <Route path='/season/break' element={<BreakPage />}></Route>
 
       </Routes>
 

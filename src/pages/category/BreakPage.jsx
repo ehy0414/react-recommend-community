@@ -44,47 +44,47 @@ const Message = styled.p`
   margin-bottom: 20%;
 `;
 
-function NaturePage() {
-    const [naturePosts, setNaturePosts] = useState([]);
+function BreakPage() {
+    const [breakPosts, setBreakPosts] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [sortOrder, setSortOrder] = useState("desc");
     const pageSize = 12;  
   
-    // ✅ 모든 계절의 nature 카테고리 가져오기
-    const getNatureData = async () => {
+    // ✅ 모든 계절의 break 카테고리 가져오기
+    const getBreakData = async () => {
       try {
         const seasons = ["spring", "summer", "autumn", "winter"];
         const requests = seasons.map((season) => api.get(`/${season}`));
         
         const responses = await Promise.all(requests);
-        const allNatureData = responses.flatMap((res) =>
-          res.data.filter((item) => item.category === "nature")
+        const allBreakData = responses.flatMap((res) =>
+          res.data.filter((item) => item.category === "break")
         );
   
-        setNaturePosts(allNatureData);
+        setBreakPosts(allBreakData);
       } catch (err) {
         console.error("데이터 가져오기 실패:", err);
       }
     };
   
     useEffect(() => {
-      getNatureData();
+      getBreakData();
     }, []);
   
     useEffect(() => {
       window.scrollTo(0, 0);
     }, [currentPage]);
   
-    const sortedNaturePosts = [...naturePosts].sort((a, b) =>
+    const sortedBreakPosts = [...breakPosts].sort((a, b) =>
       sortOrder === "desc" ? b.id - a.id : a.id - b.id
     );
   
-    const currentData = sortedNaturePosts.slice((currentPage - 1) * pageSize, currentPage * pageSize);
-    const totalPages = Math.ceil(sortedNaturePosts.length / pageSize);
+    const currentData = sortedBreakPosts.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+    const totalPages = Math.ceil(sortedBreakPosts.length / pageSize);
   
     return (
       <Wrapper>
-        <HeaderTitle title="자연"/>
+        <HeaderTitle title="휴식"/>
         <SortSelect value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
           <SelectOption value="desc">최신순</SelectOption>
           <SelectOption value="asc">오래된 순</SelectOption>
@@ -121,4 +121,4 @@ function NaturePage() {
   }
   
 
-export default NaturePage;
+export default BreakPage;
