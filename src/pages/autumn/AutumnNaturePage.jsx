@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import api from "../../services/axios";
 import Footer from "../../components/layout/footer/Footer";
 import NatureSelector from "../../modules/category/nature/NatureSelector";
-import { Button } from "../../modules/autumnPage/components/Button";
 import CategoryList from "../../modules/category/components/CategoryList";
+import { WriteButton } from "../../modules/season/WriteButton";
 
 // 전체 Wrapper
 const Wrapper = styled.div`
@@ -101,8 +101,7 @@ function AutumnNaturePage() {
       </SortSelect>
 
       {/* 글쓰기 버튼 */}
-      <Button />
-
+      <WriteButton season="autumn"/>
 
       {/* 게시글 리스트 또는 빈 게시글 메시지 출력 */}
       {currentData.length > 0 ? (

@@ -3,9 +3,9 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 import api from "../../services/axios";
 import Footer from "../../components/layout/footer/Footer";
-import { Button } from "../../modules/springPage/components/Button";
 import BreakSelector from "../../modules/category/break/BreakSelector";
 import CategoryList from "../../modules/category/components/CategoryList";
+import { WriteButton } from "../../modules/season/WriteButton";
 
 // 전체 Wrapper
 const Wrapper = styled.div`
@@ -103,7 +103,7 @@ function SpringBreakPage() {
       </SortSelect>
 
       {/* 글쓰기 버튼 */}
-      <Button />
+      <WriteButton season="spring"/>
 
       
       {/* 게시글 리스트 또는 빈 게시글 메시지 출력 */}

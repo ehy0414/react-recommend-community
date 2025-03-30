@@ -40,10 +40,10 @@ const CareersButton = styled.button`
   }
 `;
 
-export function Button() {
+export function WriteButton({season}) {
   const navigate = useNavigate();
   return (
-    <ControlsWrapper onClick={() => {navigate("/summer/write")}}>
+    <ControlsWrapper onClick={() => {navigate(`/${season}/write`)}}>
           <CareersButton>
             글쓰기
           </CareersButton>
