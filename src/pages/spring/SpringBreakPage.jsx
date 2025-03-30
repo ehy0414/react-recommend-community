@@ -2,10 +2,10 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import api from "../../services/axios";
-import SpringList from "../../modules/springPage/components/SpringList";
 import Footer from "../../components/layout/footer/Footer";
 import { Button } from "../../modules/springPage/components/Button";
 import BreakSelector from "../../modules/category/break/BreakSelector";
+import CategoryList from "../../modules/category/components/CategoryList";
 
 // 전체 Wrapper
 const Wrapper = styled.div`
@@ -108,7 +108,7 @@ function SpringBreakPage() {
       
       {/* 게시글 리스트 또는 빈 게시글 메시지 출력 */}
       {currentData.length > 0 ? (
-        <SpringList data={currentData} />
+        <CategoryList data={currentData} />
       ) : (
         <Message>게시글이 등록되지 않았어요.</Message>
       )}

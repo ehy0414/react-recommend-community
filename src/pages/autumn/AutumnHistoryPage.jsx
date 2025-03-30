@@ -5,7 +5,7 @@ import api from "../../services/axios";
 import Footer from "../../components/layout/footer/Footer";
 import HistorySelector from "../../modules/category/history/HistorySelector";
 import { Button } from "../../modules/autumnPage/components/Button";
-import AutumnList from "../../modules/autumnPage/components/AutumnList";
+import CategoryList from "../../modules/category/components/CategoryList";
 
 // 전체 Wrapper
 const Wrapper = styled.div`
@@ -106,7 +106,7 @@ function AutumnHistoryPage() {
       
       {/* 게시글 리스트 또는 빈 게시글 메시지 출력 */}
       {currentData.length > 0 ? (
-        <AutumnList data={currentData} />
+        <CategoryList data={currentData} />
       ) : (
         <Message>게시글이 등록되지 않았어요.</Message>
       )}

@@ -5,7 +5,7 @@ import api from "../../services/axios";
 import Footer from "../../components/layout/footer/Footer";
 import HistorySelector from "../../modules/category/history/HistorySelector";
 import { Button } from "../../modules/winterPage/components/Button";
-import WinterList from "../../modules/winterPage/components/WinterList";
+import CategoryList from "../../modules/category/components/CategoryList";
 
 
 // 전체 Wrapper
@@ -107,7 +107,7 @@ function WinterHistoryPage() {
       
       {/* 게시글 리스트 또는 빈 게시글 메시지 출력 */}
       {currentData.length > 0 ? (
-        <WinterList data={currentData} />
+        <CategoryList data={currentData} />
       ) : (
         <Message>게시글이 등록되지 않았어요.</Message>
       )}
