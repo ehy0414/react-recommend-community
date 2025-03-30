@@ -114,6 +114,7 @@ export function HeaderControls() {
     localStorage.removeItem("userId");
     localStorage.removeItem("userName");
     localStorage.removeItem("userEmail");
+    localStorage.removeItem("loginTime");
     setIsLoggedIn(false);
     setUserName(""); // 로그아웃 시 이름 초기화
     alert("로그아웃 되었습니다.");

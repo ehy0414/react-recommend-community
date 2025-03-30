@@ -72,13 +72,13 @@ function SummerNaturePage() {
   }, [currentPage]);
 
   // 정렬: 최신순(내림차순) 또는 오래된 순(오름차순)
-  const sortedsummerNature = [...summerNature].sort((a, b) => 
+  const sortedSummerNature = [...summerNature].sort((a, b) => 
     sortOrder === "desc" ? b.id - a.id : a.id - b.id
   );
 
   // 현재 페이지에 해당하는 데이터
-  const currentData = sortedsummerNature.slice((currentPage - 1) * pageSize, currentPage * pageSize);
-  const totalPages = Math.ceil(sortedsummerNature.length / pageSize);
+  const currentData = sortedSummerNature.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+  const totalPages = Math.ceil(sortedSummerNature.length / pageSize);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);

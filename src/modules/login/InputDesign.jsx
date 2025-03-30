@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import FormInput from "./FormInput";
 import Button from "./Button";
 import api from "../../services/axios";
-import { validateField } from "../../utils/validation"; // 유효성 검사 함수 가져오기
+import { validateField } from "../../utils/validation"; 
 import { useNavigate } from "react-router-dom";
+
+const SESSION_TIMEOUT = 1 * 60 * 1000; // 30분 (단위: 밀리초)
 
 const InputDesign = () => {
   const [email, setEmail] = useState("");
@@ -13,21 +15,35 @@ const InputDesign = () => {
 
   const navigate = useNavigate();
 
-  // 입력값 변경 시 유효성 검사 실행
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  // ✅ 1. 자동 로그아웃 체크 (30분 후)
+  useEffect(() => {
+    const checkSession = () => {
+      const loginTime = localStorage.getItem("loginTime");
 
-    if (name === "email") setEmail(value);
-    if (name === "password") setPassword(value);
+      if (loginTime) {
+        const currentTime = new Date().getTime();
+        if (currentTime - parseInt(loginTime) > SESSION_TIMEOUT) {
+          handleLogout(); // 자동 로그아웃 실행
+        }
+      }
+    };
 
-    // 실시간 유효성 검사
-    setErrors((prevErrors) => ({
-      ...prevErrors,
-      [name]: validateField(name, value),
-    }));
+    const interval = setInterval(checkSession, 1000); // 1초마다 체크
+    return () => clearInterval(interval); // 컴포넌트 언마운트 시 정리
+  }, []);
+
+  // ✅ 2. 로그아웃 함수 (자동/수동 로그아웃 시 호출)
+  const handleLogout = () => {
+    localStorage.removeItem("userId");
+    localStorage.removeItem("userName");
+    localStorage.removeItem("userEmail");
+    localStorage.removeItem("loginTime");
+    alert("세션이 만료되어 자동 로그아웃 되었습니다.");
+    navigate("/login"); // 로그인 페이지로 이동
+    window.location.reload();
   };
 
-  // 로그인 버튼 클릭 시 API 호출 + 이메일 및 비밀번호 검증
+  // ✅ 3. 로그인 버튼 클릭 시
   const handleLogin = async (e) => {
     e.preventDefault();
 
@@ -38,29 +54,26 @@ const InputDesign = () => {
 
     setErrors(newErrors);
 
-    // 하나라도 에러가 있으면 요청 중단
     if (Object.values(newErrors).some((error) => error)) return;
 
     try {
-      // db.json에서 사용자 데이터 가져오기
       const response = await api.get("/users");
       const users = response.data;
 
-      // 입력한 이메일과 비밀번호로 사용자 인증
       const user = users.find(
         (user) => user.email === email && user.password === password
       );
 
       if (user) {
-        // 로그인한 사용자의 정보를 localStorage에 저장
+        // ✅ 로그인 정보 저장 + 로그인 시간 저장
         localStorage.setItem("userId", user.id);
         localStorage.setItem("userName", user.name);
         localStorage.setItem("userEmail", user.email);
+        localStorage.setItem("loginTime", new Date().getTime().toString());
 
-        // 로그인 성공 후 홈페이지로 이동
         alert("로그인 성공!");
-        navigate("/"); 
-        window.location.reload(); // 새로고침
+        navigate("/");
+        window.location.reload();
       } else {
         alert("이메일 또는 비밀번호가 일치하지 않습니다.");
       }
@@ -76,7 +89,7 @@ const InputDesign = () => {
         value={email}
         type="email"
         name="email"
-        onChange={handleChange}
+        onChange={(e) => setEmail(e.target.value)}
         error={errors.email}
       />
       <FormInput
@@ -84,7 +97,7 @@ const InputDesign = () => {
         value={password}
         type="password"
         name="password"
-        onChange={handleChange}
+        onChange={(e) => setPassword(e.target.value)}
         error={errors.password}
       />
       <Button onClick={handleLogin}>로그인</Button>

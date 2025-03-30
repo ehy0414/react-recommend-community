@@ -3,9 +3,9 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 import api from "../../services/axios";
 import Footer from "../../components/layout/footer/Footer";
-import SummerList from "../../modules/summerPage/components/SummerList";
-import HistorySelector from "../../modules/category/history/HistorySelector";
-import { Button } from "../../modules/summerPage/components/Button";
+import BreakSelector from "../../modules/category/break/BreakSelector";
+import WinterList from "../../modules/winterPage/components/WinterList";
+import { Button } from "../../modules/winterPage/components/Button";
 
 // 전체 Wrapper
 const Wrapper = styled.div`
@@ -45,8 +45,8 @@ const Message = styled.p`
   margin-bottom: 20%;
 `;
 
-function SummerHistoryPage() {
-  const [summerHistory, setSummerHistory] = useState([]);
+function WinterBreakPage() {
+  const [winterBreak, setWinterBreak] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [sortOrder, setSortOrder] = useState("desc"); // "desc" (최신순)이 기본값
   const pageSize = 12;  // 한 페이지에 표시될 항목 수
@@ -54,9 +54,10 @@ function SummerHistoryPage() {
   // json-server에서 데이터 가져오기 및 category "break" 필터링
   const getBreak = async () => {
     try {
-      const response = await api.get("/summer");
-      const historyData = response.data.filter((item) => item.category === "history");
-      setSummerHistory(historyData);
+      const response = await api.get("/winter");
+      const breakData = response.data.filter((item) => item.category === "break");
+      setWinterBreak(breakData);
+      //console.log("debug >> axios get OK!! ", breakData);
     } catch (err) {
       console.log(err);
     }
@@ -72,13 +73,13 @@ function SummerHistoryPage() {
   }, [currentPage]);
 
   // 정렬: 최신순(내림차순) 또는 오래된 순(오름차순)
-  const sortedSummerHistory = [...summerHistory].sort((a, b) => 
+  const sortedWinterBreak = [...winterBreak].sort((a, b) => 
     sortOrder === "desc" ? b.id - a.id : a.id - b.id
   );
 
   // 현재 페이지에 해당하는 데이터
-  const currentData = sortedSummerHistory.slice((currentPage - 1) * pageSize, currentPage * pageSize);
-  const totalPages = Math.ceil(sortedSummerHistory.length / pageSize);
+  const currentData = sortedWinterBreak.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+  const totalPages = Math.ceil(sortedWinterBreak.length / pageSize);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -86,7 +87,7 @@ function SummerHistoryPage() {
 
   return (
     <Wrapper>
-      <HistorySelector season="SUMMER"/>
+      <BreakSelector season="WINTER" />
 
       {/* 정렬 선택 UI */}
       <SortSelect
@@ -103,10 +104,11 @@ function SummerHistoryPage() {
 
       {/* 글쓰기 버튼 */}
       <Button />
+
       
       {/* 게시글 리스트 또는 빈 게시글 메시지 출력 */}
       {currentData.length > 0 ? (
-        <SummerList data={currentData} />
+        <WinterList data={currentData} />
       ) : (
         <Message>게시글이 등록되지 않았어요.</Message>
       )}
@@ -136,4 +138,4 @@ function SummerHistoryPage() {
   );
 }
 
-export default SummerHistoryPage;
+export default WinterBreakPage;

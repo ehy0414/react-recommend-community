@@ -20,6 +20,11 @@ import AutumnBreakPage from './pages/autumn/AutumnBreakPage';
 import AutumnHistoryPage from './pages/autumn/AutumnHistoryPage';
 import AutumnWritePage from './pages/autumn/AutumnWritePage';
 import AutumnPostPage from './pages/autumn/AutumnPostPage';
+import WinterNaturePage from './pages/winter/WinterNaturePage';
+import WinterBreakPage from './pages/winter/WinterBreakPage';
+import WinterHistoryPage from './pages/winter/WinterHistoryPage';
+import WinterWritePage from './pages/winter/WinterWritePage';
+import WinterPostPage from './pages/winter/WinterPostPage';
 
 function App() {
   return (
@@ -51,6 +56,13 @@ function App() {
         <Route path='/autumn/history' element={<AutumnHistoryPage />}></Route>
         <Route path='/autumn/write' element={<AutumnWritePage />}></Route>
         <Route path='/autumn/:id' element={<AutumnPostPage />}></Route>
+
+        {/* Winter Page */}
+        <Route path='/winter/nature' element={<WinterNaturePage />}></Route>
+        <Route path='/winter/break' element={<WinterBreakPage />}></Route>
+        <Route path='/winter/history' element={<WinterHistoryPage />}></Route>
+        <Route path='/winter/write' element={<WinterWritePage />}></Route>
+        <Route path='/winter/:id' element={<WinterPostPage />}></Route>
       </Routes>
 
     </BrowserRouter>

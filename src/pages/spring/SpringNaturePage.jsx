@@ -72,13 +72,13 @@ function SpringNaturePage() {
   }, [currentPage]);
 
   // 정렬: 최신순(내림차순) 또는 오래된 순(오름차순)
-  const sortedspringNature = [...springNature].sort((a, b) => 
+  const sortedSpringNature = [...springNature].sort((a, b) => 
     sortOrder === "desc" ? b.id - a.id : a.id - b.id
   );
 
   // 현재 페이지에 해당하는 데이터
-  const currentData = sortedspringNature.slice((currentPage - 1) * pageSize, currentPage * pageSize);
-  const totalPages = Math.ceil(sortedspringNature.length / pageSize);
+  const currentData = sortedSpringNature.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+  const totalPages = Math.ceil(sortedSpringNature.length / pageSize);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
