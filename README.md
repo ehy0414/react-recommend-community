@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# 계절별 여행지 추천 커뮤니티 사이트
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
