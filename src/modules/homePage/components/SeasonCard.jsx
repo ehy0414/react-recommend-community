@@ -1,8 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-const SeasonCard = ({ image, altText, title, delay }) => {
+const SeasonCard = ({ image, altText, title, delay, category }) => {
+  const navigate = useNavigate();
   return (
-    <CardWrapper delay={delay}>
+    <CardWrapper delay={delay} onClick={() => {navigate(`season/${category}`)}}>
       <CardContainer>
         <img src={image} alt={altText} className="w-full h-full object-cover" />
         <SeasonTitle>{title}</SeasonTitle>

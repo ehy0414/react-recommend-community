@@ -36,7 +36,6 @@ const Container = styled.div`
 `;
 
 const ContentBackground = styled.div`
-  border-radius: 25px;
   display: flex;
   width: 100%;
   padding-bottom: 256px;
@@ -77,6 +76,7 @@ const Heading = styled.h1`
   font-weight: bold;
   white-space: nowrap;
   text-align: center;
+  margin-top: 50px;
   
   line-height: 1;
   @media (max-width: 991px) {

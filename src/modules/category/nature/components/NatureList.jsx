@@ -11,6 +11,7 @@ const NatureList = ({ data }) => {
           content={nature.content}
           image={nature.image}
           natureId={nature.id}
+          season={nature.season}  // ✅ 각 게시글의 계절 정보 전달
         />
       ))}
     </div>
