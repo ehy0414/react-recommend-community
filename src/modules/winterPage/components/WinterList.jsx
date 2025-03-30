@@ -4,13 +4,13 @@ import WinterCard from "./WinterCard";
 const WinterList = ({ data }) => {
   return (
     <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
-      {data.map((spring) => (
+      {data.map((winter) => (
         <WinterCard
-          key={spring.id}
-          title={spring.title}
-          content={spring.content}
-          image={spring.image}
-          springId={spring.id}
+          key={winter.id}
+          title={winter.title}
+          content={winter.content}
+          image={winter.image}
+          winterId={winter.id}
         />
       ))}
     </div>

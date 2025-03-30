@@ -176,6 +176,7 @@ function CreatePost({ season }) {
         category,
         image: base64Image,
         userId: user.id, // 로그인한 사용자 ID를 외래키로 저장
+        season: `${season}`
       };
 
       try {
