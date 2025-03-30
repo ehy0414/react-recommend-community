@@ -15,6 +15,11 @@ import SummerWritePage from './pages/summer/SummerWritePage';
 import SummerPostPage from './pages/summer/SummerPostPage';
 import JoinPage from './pages/JoinPage';
 import LoginPage from './pages/LoginPage';
+import AutumnNaturePage from './pages/autumn/AutumnNaturePage';
+import AutumnBreakPage from './pages/autumn/AutumnBreakPage';
+import AutumnHistoryPage from './pages/autumn/AutumnHistoryPage';
+import AutumnWritePage from './pages/autumn/AutumnWritePage';
+import AutumnPostPage from './pages/autumn/AutumnPostPage';
 
 function App() {
   return (
@@ -39,6 +44,13 @@ function App() {
         <Route path='/summer/history' element={<SummerHistoryPage />}></Route>
         <Route path='/summer/write' element={<SummerWritePage />}></Route>
         <Route path='/summer/:id' element={<SummerPostPage />}></Route>
+
+        {/* Autumn Page */}
+        <Route path='/autumn/nature' element={<AutumnNaturePage />}></Route>
+        <Route path='/autumn/break' element={<AutumnBreakPage />}></Route>
+        <Route path='/autumn/history' element={<AutumnHistoryPage />}></Route>
+        <Route path='/autumn/write' element={<AutumnWritePage />}></Route>
+        <Route path='/autumn/:id' element={<AutumnPostPage />}></Route>
       </Routes>
 
     </BrowserRouter>

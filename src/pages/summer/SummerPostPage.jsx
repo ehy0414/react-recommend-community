@@ -17,6 +17,8 @@ const Wrapper = styled.div`
     justify-content: center;
     flex-wrap: wrap;
     `;
+
+    
 const SummerPostPage = () => {
     const { id } = useParams();
     const [getSummer, setSummer] = useState([]);
