@@ -1,8 +1,9 @@
 ### **README**
-
+![계절따라_logo](https://github.com/user-attachments/assets/3d202a1f-0d9f-4cd8-9eae-66a95677fe90)
 ## 프로젝트 개요
 
 ---
+
 
 🗺️**개발 기간** 
 
