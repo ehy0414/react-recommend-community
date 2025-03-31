@@ -1,7 +1,8 @@
 ### **README**
 
 ## 프로젝트 개요
-![계절따라_logo](https://github.com/user-attachments/assets/3d202a1f-0d9f-4cd8-9eae-66a95677fe90)
+![i0l1j3yf](https://github.com/user-attachments/assets/8cd0bdb9-fd71-4c70-a428-68cb3d7ce241)
+
 ---
 
 
