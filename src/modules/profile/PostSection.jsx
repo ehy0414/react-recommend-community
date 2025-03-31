@@ -102,11 +102,6 @@ const Tab = styled.button`
   border: none;
 `;
 
-const PhotoItem = styled.div`
-  aspect-ratio: 1;
-  background-color: #262626;
-`;
-
 // 빈 게시글 메시지 스타일
 const Message = styled.p`
   text-align: center;

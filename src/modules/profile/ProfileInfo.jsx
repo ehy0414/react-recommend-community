@@ -66,7 +66,7 @@ const ProfileName = styled.h2`
 `;
 
 const FollowButton = styled.button`
-    background-color: #0095f6;
+    background-color:rgb(252, 204, 133);
     color: white;
     padding: 7px 16px;
     border-radius: 4px;
@@ -75,6 +75,17 @@ const FollowButton = styled.button`
     font-family: "Gamja Flower";
     cursor: pointer;
     border: none;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        background-color: #ff7f50;
+    }
+
+    &::after {
+        position: absolute;
+        background-color: #ff7f50;
+        transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+    }
 `;
 
 
