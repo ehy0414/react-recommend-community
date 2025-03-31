@@ -65,6 +65,11 @@ const Name = styled.p`
   font-family: "Gamja Flower";
   font-size: 20px;
   font-weight: bold;
+  cursor: pointer;
+   &:hover {
+    transform: scale(1.1); /* 호버 시 크기 확대 */
+    color: black;
+  }
 `;
 
 const LogoutButton = styled.button`
@@ -95,7 +100,7 @@ const LogoutButton = styled.button`
   }
 `;
 
-const SESSION_TIMEOUT = 20 * 60 * 1000; // 30분 (단위: 밀리초)
+const SESSION_TIMEOUT = 30 * 60 * 1000; // 30분 (단위: 밀리초)
 
 export function HeaderControls() {
   const navigate = useNavigate();
@@ -157,7 +162,7 @@ export function HeaderControls() {
       <ControlsContainer>
         {isLoggedIn ? (
           <NameDiv>
-            <Name>{userName}님 환영해요</Name>
+            <Name onClick={()=>{navigate("/profile")}}>{userName}님 환영해요</Name>
             <LogoutButton onClick={handleLogout}>로그아웃</LogoutButton>
           </NameDiv>
         ) : (

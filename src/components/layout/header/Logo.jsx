@@ -9,7 +9,7 @@ const LogoWrapper = styled.div`
   margin: auto 0;
   height: 40px;
 
-  padding-left: 60px;
+  padding-left: 50px;
   flex-direction: column;
   align-items: start;
   justify-content: start;

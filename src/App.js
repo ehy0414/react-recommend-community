@@ -28,6 +28,7 @@ import WinterPostPage from './pages/winter/WinterPostPage';
 import NaturePage from './pages/category/NaturePage';
 import BreakPage from './pages/category/BreakPage';
 import HistoryPage from './pages/category/HistoryPage';
+import { ProfilePage } from './pages/ProfilePage';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
         <Route path='/aboutUs' element={<AboutUsPage />}></Route>
         <Route path='/user/join' element={<JoinPage />}></Route>
         <Route path='/user/login' element={<LoginPage />}></Route>
+        <Route path='/profile' element={<ProfilePage />}></Route>
         
         {/* Spring Page */}
         <Route path='/spring/nature' element={<SpringNaturePage />}></Route>
