@@ -70,6 +70,12 @@ const Name = styled.p`
     transform: scale(1.1); /* 호버 시 크기 확대 */
     color: black;
   }
+  transition: all 0.3s ease-in-out;
+    &::after {
+        transform: scale(1.1); /* 호버 시 크기 확대 */
+        color: black;
+        transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+    }
 `;
 
 const LogoutButton = styled.button`
@@ -98,6 +104,12 @@ const LogoutButton = styled.button`
     transform: scale(1.1); /* 호버 시 크기 확대 */
     color: red;
   }
+  transition: all 0.3s ease-in-out;
+    &::after {
+        transform: scale(1.1); /* 호버 시 크기 확대 */
+        color: red;
+        transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+    }
 `;
 
 const SESSION_TIMEOUT = 30 * 60 * 1000; // 30분 (단위: 밀리초)

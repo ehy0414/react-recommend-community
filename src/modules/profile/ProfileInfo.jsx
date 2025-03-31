@@ -21,7 +21,7 @@ const ProfileContainer = styled.section`
     display: flex;
     gap: 80px;
     margin-bottom: 44px;
-    margin-left: 15%;
+    margin-left: 20%;
     @media (max-width: 991px) {
         gap: 40px;
     }
@@ -80,9 +80,8 @@ const FollowButton = styled.button`
     &:hover {
         background-color: #ff7f50;
     }
-
+        
     &::after {
-        position: absolute;
         background-color: #ff7f50;
         transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
     }
