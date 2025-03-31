@@ -1,47 +1,62 @@
-# 계절별 여행지 추천 커뮤니티 사이트
+### **README**
 
-## I USE
-React.js(1.19.0) / javascript
+## 프로젝트 개요
+![i0l1j3yf](https://github.com/user-attachments/assets/8cd0bdb9-fd71-4c70-a428-68cb3d7ce241)
 
-## USE PACKAGES
-1. axios : "^1.8.2",
-2. styled-components: "^6.1.15"
-3. react-router-dom: "^7.3.0"
-4. react-intersection-observer: "^9.16.0"
+---
 
-In the project directory, you can run:
 
-### `npm start`
+🗺️**개발 기간** 
 
-브라우저가 실행이 됩니다 (http://localhost:3000/)
-실행화면
+| 개발 기간 | 25.3.10~25.6.10(3개월) |
+| --- | --- |
 
-## Learn More
+🗺️**기술 스택**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+| **Programming Languages** | JavaScript |
+| --- | --- |
+| **Frameworks** | React (19.0.0) |
+| **Version Control** | Git |
+| **Server** | json-server |
+| **API** | RESTful API |
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+🗺️**기획 배경**
 
-### Code Splitting
+- 많은 사람들이 계절마다 여행지를 고민
+- 여행지를 찾기 위해 검색해도 광고 노출로 인한 불편함
+- 정보를 서로 공유할 수 있는 공간의 부재
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+🗺️**기획 목표**
 
-### Analyzing the Bundle Size
+| 유저 간 계절별로 여행지 정보를 공유, 추천할 수 있는 커뮤니케이션 공간을 만들어 다양한 여행지를 추천 받도록 하였습니다. |
+| --- |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 프로젝트 소개
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 🌿 **프로젝트 소개 - 계절따라** 🌿
 
-### Advanced Configuration
+**"계절을 따라 떠나는 감성 여행"**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+**“계절따라”는** 사용자가 **각 계절에 어울리는 여행지**를 추천받고, 공유할 수 있는 커뮤니티 기반의 여행 플랫폼입니다. 봄, 여름, 가을, 겨울마다 변화하는 다양한 카테고리와 분위기에 맞춰 **감성적인 여행지를 탐색**하고, 직접 경험한 후기를 나누며 여행의 즐거움을 더할 수 있습니다.
 
-### Deployment
+## 프로젝트 주요 기능
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+### ✔**계절별 여행지 추천**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**– 봄, 여름, 가을, 겨울 각각의 분위기에 맞는 여행지를 추천**
+
+### ✔**여행 후기 작성 및 공유**
+
+**– 직접 다녀온 여행지를 리뷰하고, 사진과 함께 경험 공유**
+
+### ✔**즐겨찾기**
+
+**– 가고 싶은 여행지를 저장하고 나중에 쉽게 확인**
+
+### ✔**커뮤니티 & 댓글 기능**
+
+**– 여행 정보를 공유하고, 다른 사람들과 소통**
