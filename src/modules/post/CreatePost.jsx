@@ -170,7 +170,7 @@ function CreatePost({ season }) {
     reader.onloadend = async () => {
       const base64Image = reader.result;
       const postData = {
-        id: Date.now(),
+        id: Date.now().toString(),
         title,
         content,
         category,

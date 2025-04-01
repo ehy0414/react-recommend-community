@@ -21,7 +21,19 @@ const Wrapper = styled.div`
 const SpringPostPage = () => {
     const { id } = useParams();
     const [getSpring, setSpring] = useState([]);
-    const getPost = async() => {
+    
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        getPost();
+    }, [id]);
+    
+    useEffect(() => {
+        if (getSpring.userId) { // ✅ userId가 존재할 때만 실행
+            getUser();
+        }
+    }, [getSpring]); // ✅ getSpring이 변경될 때 실행
+    
+    const getPost = async () => {
         try {
             const response = await api.get(`spring/${id}`);
             setSpring(response.data);
@@ -29,12 +41,17 @@ const SpringPostPage = () => {
         } catch (error) {
             alert("에러가 발생하였습니다");
         }
-
     };
-    useEffect(() => {
-        window.scrollTo(0, 0);
-        getPost();
-    },[id]);
+    
+    const getUser = async () => {
+        try {
+            const response = await api.get(`/users?id=${getSpring.userId}`);
+            console.log(response.data);
+        } catch (error) {
+            alert("에러가 발생하였습니다");
+        }
+    };
+    
 
     return(
         <Wrapper>
