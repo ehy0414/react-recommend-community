@@ -73,7 +73,7 @@ const CategoryCard = ({ title, content, image, categoryId, season }) => {
     >
       <Image src={image} alt="img" />
       <TitleContainer>
-        <Title>{title}</Title>
+        <Title>[{season}] {title}</Title>
       </TitleContainer>
     </AnimatedCardContainer>
   );

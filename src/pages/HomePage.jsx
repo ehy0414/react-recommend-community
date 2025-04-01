@@ -12,6 +12,7 @@ const Wrapper = styled.div`
 
 function HomePage() {
 
+
   return (
     <Wrapper>
       <ImageContainer/>
