@@ -2,26 +2,27 @@
 import React from "react";
 import styled from "styled-components";
 import img from "../assets/history.jpg";
+import { useNavigate } from "react-router-dom";
 
 const ProfileInfo = ({userName}) => {
-  return (
-    <ProfileContainer>
-      <ProfileAvatar src={img} alt="avatar"/>
-      <ProfileDetails>
-        <ProfileHeader>
-          <ProfileName>{userName}님</ProfileName>
-          <FollowButton>프로필 변경하기</FollowButton>
-        </ProfileHeader>
-      </ProfileDetails>
-    </ProfileContainer>
-  );
+    const navigate = useNavigate();
+    return (
+        <ProfileContainer>
+            <ProfileDetails>
+                <ProfileHeader>
+                <ProfileName>{userName}님</ProfileName>
+                <FollowButton onClick={() => {navigate("/update/user")}}>이름 변경하기</FollowButton>
+                </ProfileHeader>
+            </ProfileDetails>
+        </ProfileContainer>
+    );
 };
 
 const ProfileContainer = styled.section`
     display: flex;
     gap: 80px;
     margin-bottom: 44px;
-    margin-left: 20%;
+    margin-left: 40%;
     @media (max-width: 991px) {
         gap: 40px;
     }
@@ -30,21 +31,6 @@ const ProfileContainer = styled.section`
         gap: 20px;
         align-items: center;
         text-align: center;
-    }
-`;
-
-const ProfileAvatar = styled.img`
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background-color: #262626;
-    @media (max-width: 991px) {
-        width: 120px;
-        height: 120px;
-    }
-    @media (max-width: 640px) {
-        width: 100px;
-        height: 100px;
     }
 `;
 

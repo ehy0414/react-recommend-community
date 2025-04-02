@@ -29,6 +29,7 @@ import NaturePage from './pages/category/NaturePage';
 import BreakPage from './pages/category/BreakPage';
 import HistoryPage from './pages/category/HistoryPage';
 import { ProfilePage } from './pages/ProfilePage';
+import UpdateProfilePage from './pages/UpdateProfilePage';
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
         <Route path='/user/join' element={<JoinPage />}></Route>
         <Route path='/user/login' element={<LoginPage />}></Route>
         <Route path='/profile' element={<ProfilePage />}></Route>
+        <Route path='/update/user' element={<UpdateProfilePage />}></Route>
         
         {/* Spring Page */}
         <Route path='/spring/nature' element={<SpringNaturePage />}></Route>
