@@ -3,6 +3,7 @@ import HeaderTitle from "../modules/post/HeaderTitle";
 import ProfileInfo from "../modules/profile/ProfileInfo";
 import PostsSection from "../modules/profile/PostSection";
 import { useEffect, useState } from "react";
+import Footer from "../components/layout/footer/Footer";
 
 const Wrapper = styled.div`
     position: absolute;
@@ -33,6 +34,7 @@ export function ProfilePage() {
                 <ProfileInfo userName={userName}/>
                 <PostsSection />
             </MainContent>     
+            <Footer />
         </Wrapper>
     );
 };

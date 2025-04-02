@@ -80,6 +80,7 @@ const FormContainer = styled.form`
   display: flex;
   width: 40%;
   min-width: 320px;
+  height: 100%;
   padding: 24px;
   flex-direction: column;
   align-items: flex-start;
