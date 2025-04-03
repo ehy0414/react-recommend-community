@@ -56,7 +56,7 @@ const PostsSection = () => {
         </TabsContainer>
 
         {currentData.length > 0 ? (
-            <CategoryList data={currentData} />
+            <CategoryList data={currentData} currentUserId={userId}/>
         ) : (
             <Message>게시글이 등록되지 않았어요.</Message>
         )}
