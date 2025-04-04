@@ -30,6 +30,7 @@ import BreakPage from './pages/category/BreakPage';
 import HistoryPage from './pages/category/HistoryPage';
 import { ProfilePage } from './pages/ProfilePage';
 import UpdateProfilePage from './pages/UpdateProfilePage';
+import EditPostPage from './pages/EditPostPage';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         <Route path='/user/login' element={<LoginPage />}></Route>
         <Route path='/profile' element={<ProfilePage />}></Route>
         <Route path='/update/user' element={<UpdateProfilePage />}></Route>
+        <Route path='/edit/:id' element={<EditPostPage />}></Route>
         
         {/* Spring Page */}
         <Route path='/spring/nature' element={<SpringNaturePage />}></Route>
