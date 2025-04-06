@@ -164,7 +164,7 @@ function EditPost({ data }) {
           headers: { 'Content-Type': 'application/json' },
         });
         alert("게시글이 수정되었습니다.");
-        navigate(`/${data.season}/nature`);
+        navigate(`/profile`);
       } catch (err) {
         console.error('수정 실패:', err);
       }
