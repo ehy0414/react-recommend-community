@@ -6,7 +6,7 @@ const Footer = () => {
       <FooterContent>
         <p>스마트미디어학과 202062033 엄현용</p>
         <FooterLinks>
-          <a href="https://github.com/ehy0414/React-ReFruit.git">GitHub Link</a> | <a href="#">Terms of Service</a>
+          <a href="https://github.com/ehy0414/react-recommend-community.git">GitHub Link</a> | <a href="#">Terms of Service</a>
         </FooterLinks>
       </FooterContent>
     </FooterContainer>
