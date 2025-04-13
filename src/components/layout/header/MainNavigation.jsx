@@ -86,7 +86,6 @@ export function MainNavigation() {
         <NavItem onClick={() => navigate("/summer/nature")}>SUMMER</NavItem>
         <NavItem onClick={() => navigate("/autumn/nature")}>AUTUMN</NavItem>
         <NavItem onClick={() => navigate("/winter/nature")}>WINTER</NavItem>
-        <NavItem onClick={() => navigate("/support")}>SUPPORT</NavItem>
       </NavItems>
     </NavContainer>
   );
