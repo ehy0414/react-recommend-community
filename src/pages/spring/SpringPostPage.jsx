@@ -6,6 +6,7 @@ import Footer from "../../components/layout/footer/Footer";
 import ImageContainer from "../../modules/post/ImageContainer";
 import ContentSection from "../../modules/post/ContentSection";
 import HeaderTitle from "../../modules/post/HeaderTitle";
+import CommentInput from "../../modules/post/comment/CommentInput";
 
 
 const Wrapper = styled.div`
@@ -58,6 +59,7 @@ const SpringPostPage = () => {
             <HeaderTitle title="SPRING"/>
             <ImageContainer image={getSpring.image}/>
             <ContentSection data={getSpring}/>
+            <CommentInput data={getSpring}/>
             <Footer/>
         </Wrapper>
     );

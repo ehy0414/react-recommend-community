@@ -6,6 +6,7 @@ import Footer from "../../components/layout/footer/Footer";
 import HeaderTitle from "../../modules/post/HeaderTitle";
 import ImageContainer from "../../modules/post/ImageContainer";
 import ContentSection from "../../modules/post/ContentSection";
+import CommentInput from "../../modules/post/comment/CommentInput";
 
 const Wrapper = styled.div`
     position: absolute;
@@ -42,6 +43,7 @@ const SummerPostPage = () => {
             <HeaderTitle title="SUMMER"/>
             <ImageContainer image={getSummer.image}/>
             <ContentSection data={getSummer}/>
+            <CommentInput data={getSummer}/>
             <Footer/>
         </Wrapper>
     );

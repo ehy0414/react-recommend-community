@@ -7,14 +7,17 @@ import { useNavigate, useParams } from "react-router-dom";
 const ContentSection = ( props ) => {
   const [userId, setUserId] = useState(null); // 세션에서 가져온 사용자 ID
   const navigate = useNavigate();
+
   // console.log(props.data.id);
 
-  // 세션에서 userId를 가져오는 로직
+  // 세션에서 userId 가져오기
   useEffect(() => {
     setUserId(localStorage.getItem("userId"));
   }, []);
+  
 
-  // 게시글 삭제 핸들러
+
+  // 게시글 삭제
   const deletePost = async () => {
     if (window.confirm("정말로 이 게시글을 삭제하시겠습니까?")) {
       try{
@@ -28,6 +31,7 @@ const ContentSection = ( props ) => {
       
     }
   };
+
   return (
     <Container>
       <ContentBackground>
@@ -43,6 +47,7 @@ const ContentSection = ( props ) => {
             </Description>
           </ContentContainer>
         </ContentWrapper>
+        
       </ContentBackground>
     </Container>
   );
@@ -58,6 +63,7 @@ const Container = styled.div`
   flex-grow: 1;
   flex-shrink: 1;
   width: 600px;
+  height: 100vh;
   margin-right: 5%;
   margin-left: -5%;
   @media (max-width: 991px) {
@@ -154,5 +160,6 @@ const DeleteButton = styled.button`
     color: red;
   }
 `;
+
 
 export default ContentSection;

@@ -112,7 +112,7 @@ const LogoutButton = styled.button`
     }
 `;
 
-const SESSION_TIMEOUT = 30 * 60 * 1000; // 30분 (단위: 밀리초)
+const SESSION_TIMEOUT = 300 * 60 * 1000; // 30분 (단위: 밀리초)
 
 export function HeaderControls() {
   const navigate = useNavigate();
