@@ -7,7 +7,7 @@ const LogoWrapper = styled.div`
   display: flex;
   min-width: 103px;
   margin: auto 0;
-  height: 40px;
+  height: 50px;
 
   padding-left: 50px;
   flex-direction: column;
