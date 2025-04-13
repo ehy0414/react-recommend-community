@@ -1,7 +1,6 @@
 ### **README**
 
 ## 프로젝트 개요
-![계절따라_logo](https://github.com/user-attachments/assets/672c81c5-09d6-4e51-974a-2df1ef0dd627)
 
 ---
 
@@ -51,6 +50,7 @@
 ---
 
 ### 🌿 **프로젝트 소개 - 계절따라** 🌿
+![계절따라_logo](https://github.com/user-attachments/assets/672c81c5-09d6-4e51-974a-2df1ef0dd627)
 
 **"계절을 따라 떠나는 감성 여행"**
 
