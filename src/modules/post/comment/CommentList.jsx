@@ -1,14 +1,24 @@
 import styled from "styled-components";
 import CommentItem from "./CommentItem";
+import { useEffect, useState } from "react";
 
 const CommentList = ({data}) => {
+    const [userId, setUserId] = useState(null);
+
+    useEffect(()=> {
+        setUserId(localStorage.getItem("userId"));
+    },[]);
+
     return (
         <Wrapper>
             <CommentLists>
                 {data.map((comment, index) => (
                     <CommentItem    key={index}
+                                    commentId={comment.id}
                                     userName={comment.userName}
-                                    userComment={comment.content} />
+                                    userComment={comment.content}
+                                    commentUserId={comment.userId}
+                                    userId={userId} />
                 ))}
             </CommentLists>
         </Wrapper>
