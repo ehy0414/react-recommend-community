@@ -4,29 +4,7 @@ import springImg from "../../../assets/spring.jpg";
 import summerImg from "../../../assets/summer.jpg";
 import autumnImg from "../../../assets/autumn.jpg";
 import winterImg from "../../../assets/winter.jpg";
-
-const images = [
-  {
-    src: springImg,
-    title: "봄의 산뜻한 하루",
-    subTitle: "A fresh day of spring",
-  },
-  {
-    src: summerImg,
-    title: "여름의 시원한 행복",
-    subTitle: "Cool happiness in summer",
-  },
-  {
-    src: autumnImg,
-    title: "가을의 따뜻한 감성",
-    subTitle: "Warm emotions in autumn",
-  },
-  {
-    src: winterImg,
-    title: "겨울의 포근한 순간",
-    subTitle: "Cozy moments in winter",
-  },
-];
+import { useNavigate } from "react-router-dom";
 
 const StyledSlider = styled.div`
   position: relative;
@@ -110,8 +88,37 @@ const NextButton = styled(ArrowButton)`
   right: 10px;
 `;
 
+
+const images = [
+  {
+    src: springImg,
+    title: "봄의 산뜻한 하루",
+    subTitle: "A fresh day of spring",
+    path: "/spring/nature",
+  },
+  {
+    src: summerImg,
+    title: "여름의 시원한 행복",
+    subTitle: "Cool happiness in summer",
+    path: "/summer/nature",
+  },
+  {
+    src: autumnImg,
+    title: "가을의 따뜻한 감성",
+    subTitle: "Warm emotions in autumn",
+    path: "/autumn/nature",
+  },
+  {
+    src: winterImg,
+    title: "겨울의 포근한 순간",
+    subTitle: "Cozy moments in winter",
+    path: "/winter/nature",
+  },
+];
+
 function ImageContainer() {
   const [index, setIndex] = useState(0);
+  const navigate = useNavigate();
 
   const prevSlide = () => {
     setIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
@@ -121,15 +128,16 @@ function ImageContainer() {
     setIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
+  // 이미지 클릭 시 페이지 이동
+  const handleClick = () => {
+    navigate(images[index].path);
+  };
 
   return (
-    <StyledSlider>
+    <StyledSlider onClick={handleClick}>
       <PrevButton onClick={(e) => { e.stopPropagation(); prevSlide(); }}>❮</PrevButton>
       {images.map((image, i) => (
-        <Slide
-          key={i}
-          active={i === index}
-        >
+        <Slide key={i} active={i === index}>
           <StyledImage src={image.src} alt={`Season ${i + 1}`} />
           <TextOverlay>
             <Title>{image.title}</Title>
@@ -141,5 +149,6 @@ function ImageContainer() {
     </StyledSlider>
   );
 }
+
 
 export default ImageContainer;
